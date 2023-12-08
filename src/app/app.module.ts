@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectHomeComponent } from './project-home/project-home.component';
 import { MatTableModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MatTableModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
