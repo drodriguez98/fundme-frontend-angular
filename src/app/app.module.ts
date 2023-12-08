@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectHomeComponent } from './project-home/project-home.component';
 import { MatTableModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { DonationHomeComponent } from './donation-home/donation-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectHomeComponent
+    ProjectHomeComponent,
+    DonationHomeComponent
   ],
   imports: [
     BrowserModule,
