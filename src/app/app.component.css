@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(127, 189, 119);
+}
+
+.nav-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
