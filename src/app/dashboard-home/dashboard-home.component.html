@@ -1,0 +1,69 @@
+<div id="container">
+
+    <h1>Top projects</h1>
+
+    <mat-table [dataSource]="projects" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="dateAdded">
+          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </mat-cell>
+        </ng-container>      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.title}} </mat-cell>
+        </ng-container>
+      
+        <!-- 
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.description}} </mat-cell>
+        </ng-container>
+        -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.userId.username}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="totalAmount">
+          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.totalAmount}} €</mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'username', 'totalAmount']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'username', 'totalAmount' ];"></mat-row>
+        <!--
+        <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'description', 'username', 'totalAmount']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'description', 'username', 'totalAmount' ];"></mat-row>
+        -->
+      </mat-table>
+
+      <h1>Top donations</h1>
+
+      <mat-table [dataSource]="donations" class="mat-elevation-z8">
+          <!-- Position Column -->
+          <ng-container matColumnDef="dateAdded">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </mat-cell>
+          </ng-container>      
+          <!-- Name Column -->
+          <ng-container matColumnDef="username">
+              <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+              <mat-cell *matCellDef="let donation"> {{donation.userId.username}} </mat-cell>
+          </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell *matCellDef="let donation"> {{donation.projectId.title}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+            <mat-cell *matCellDef="let donation"> {{donation.amount}} €</mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'username', 'amount']"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'username', 'amount' ];"></mat-row>
+  
+        </mat-table>
+
+</div>
