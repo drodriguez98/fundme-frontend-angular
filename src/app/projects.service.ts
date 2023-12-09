@@ -13,4 +13,11 @@ export class ProjectsService {
     const headers = new HttpHeaders();
     return this.http.get<any>(url, { headers });
   }
+
+  getTopProjects(): Observable<any> {
+    const url = 'http://localhost:30030/fundme/controller/rest/projects/top';
+    const headers = new HttpHeaders();
+    return this.http.get<any>(url, { headers });
+  }
+
 }
