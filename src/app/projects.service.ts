@@ -9,15 +9,54 @@ export class ProjectsService {
   constructor(private http: HttpClient) {}
 
   getProjects(): Observable<any> {
-    const url = 'http://localhost:30030/fundme/controller/rest/projects/all';
+    const url = 'http://localhost:30030/projects/all';
     const headers = new HttpHeaders();
     return this.http.get<any>(url, { headers });
   }
 
   getTopProjects(): Observable<any> {
-    const url = 'http://localhost:30030/fundme/controller/rest/projects/top';
+    const url = 'http://localhost:30030/projects/top';
     const headers = new HttpHeaders();
     return this.http.get<any>(url, { headers });
+  }
+
+  getProject(projectId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/projects/get';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({id: projectId});
+    return this.http.post(url, body, {headers});
+
+  }
+
+  newProject(project : any): void {
+
+    const url = 'http://localhost:30030/projects/add';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = project;
+    this.http.post(url, body, { headers }).subscribe();
+
+  }
+
+  editProject(project : any): void {
+
+    const url = 'http://localhost:30030/projects/update';
+    const body = project;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    this.http.put(url, body,{headers}).subscribe();
+
+  }
+
+  deleteProject (projectId: number): void {
+
+    const url = 'http://localhost:30030/projects/delete';
+    const body = { id: projectId };
+    const options = {
+      body: body,
+      headers: new HttpHeaders()
+    };
+    this.http.delete(url, options).subscribe();
+    
   }
 
 }
