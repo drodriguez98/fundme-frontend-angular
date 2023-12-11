@@ -10,22 +10,23 @@ h1 {
     margin: 50px auto;
 }
 
-mat-table { 
+table { 
     width: 60%; 
     margin: 0 auto;
 }
 
-mat-header-cell {
+table th {
     font-size: 17px;
     font-weight: bold;
-    justify-content: center;
+
 }
 
-mat-cell {
+table td {
     font-size: 15px;
-    justify-content: center;
+    text-align: center;
+
 }
 
-mat-row:hover {
+table tr:hover {
     background-color: rgb(245, 250, 244);
 }
