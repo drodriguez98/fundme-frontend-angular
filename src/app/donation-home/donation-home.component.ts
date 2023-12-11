@@ -17,4 +17,6 @@ export class DonationHomeComponent implements OnInit {
       this.donations = data;
     });
   }
+
+  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'amount' ];
 }
