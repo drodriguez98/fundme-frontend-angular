@@ -1,0 +1,31 @@
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 50px auto;
+}
+
+mat-card { 
+    min-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px;
+
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-size: 16px;
+    margin: 20px auto;
+}

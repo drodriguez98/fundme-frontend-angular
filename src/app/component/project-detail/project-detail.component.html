@@ -1,17 +1,23 @@
 <div id="container">
 
-    <mat-card class="card">
+    <h1>Project details</h1>
 
-        <mat-card-title>Project details</mat-card-title>
+    <mat-card class="card">
 
         <mat-card-content class="card-content">
 
-            <p> <mat-icon>list</mat-icon> <strong>Title </strong> {{ project.title }} </p>
-            <p> <mat-icon>list</mat-icon> <strong>Area </strong> {{ project.areaId.name }} </p>
-            <p> <mat-icon>list</mat-icon> <strong>User </strong> {{ project.userId.name }} </p>
-            <p> <mat-icon>list</mat-icon> <strong>Date </strong> {{ project.dateAdded | date:'yyyy/MM/dd'}} </p>
-            <p> <mat-icon>list</mat-icon> <strong>Description </strong> {{ project.description }} </p>
-            <p> <mat-icon>list</mat-icon> <strong>Total amount </strong> {{project.totalAmount }} </p>
+            <p> <strong>Date </strong></p>
+            <p>{{ project.dateAdded | date:'yyyy/MM/dd'}} </p>
+            <p> <strong>Area </strong></p>
+            <p>{{ project.areaId.name }} </p>
+            <p><strong>User </strong></p> 
+            <p>{{ project.userId.name }} </p>
+            <p> <strong>Title</strong></p>
+            <p> {{ project.title }} </p>
+            <p> <strong>Description </strong></p>
+            <p>{{ project.description }} </p>
+            <p> <strong>Total amount </strong></p>
+            <p>{{project.totalAmount }} </p>
             
         </mat-card-content>
 
