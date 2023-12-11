@@ -2,68 +2,85 @@
 
     <h1>Top projects</h1>
 
-    <mat-table [dataSource]="projects" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="dateAdded">
-          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-          <mat-cell *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </mat-cell>
-        </ng-container>      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-          <mat-cell *matCellDef="let project"> {{project.title}} </mat-cell>
-        </ng-container>
-      
-        <!-- 
-        <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-          <mat-cell *matCellDef="let project"> {{project.description}} </mat-cell>
-        </ng-container>
-        -->
+    <table mat-table [dataSource]="projects" class="mat-elevation-z8">
 
-        <!-- Name Column -->
+      <!--
+      <ng-container matColumnDef="projectId">
+
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let project"> {{project.projectId}} </td>
+  
+      </ng-container>
+      -->
+
+        <ng-container matColumnDef="dateAdded">
+
+          <th *matHeaderCellDef> Date </th>
+          <td *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </td>
+
+        </ng-container>    
+
+        <ng-container matColumnDef="title">
+
+          <th *matHeaderCellDef> Title </th>
+          <td *matCellDef="let project"> {{project.title}} </td>
+
+        </ng-container>
+
         <ng-container matColumnDef="username">
-          <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
-          <mat-cell *matCellDef="let project"> {{project.userId.username}} </mat-cell>
+
+          <th *matHeaderCellDef> User </th>
+          <td *matCellDef="let project"> {{project.userId.username}} </td>
+
         </ng-container>
+
         <ng-container matColumnDef="totalAmount">
-          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
-          <mat-cell *matCellDef="let project"> {{project.totalAmount}} €</mat-cell>
+
+          <th *matHeaderCellDef> Amount </th>
+          <td *matCellDef="let project"> {{project.totalAmount}} €</td>
+
         </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedProjectsColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedProjectsColumns;" (click)="openDetailProjectsForm(row)"></tr>
       
-        <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'username', 'totalAmount']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'username', 'totalAmount' ];"></mat-row>
-        <!--
-        <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'description', 'username', 'totalAmount']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'description', 'username', 'totalAmount' ];"></mat-row>
-        -->
-      </mat-table>
+      </table>
 
       <h1>Top donations</h1>
 
-      <mat-table [dataSource]="donations" class="mat-elevation-z8">
-          <!-- Position Column -->
+      <table mat-table [dataSource]="donations" class="mat-elevation-z8">
+
           <ng-container matColumnDef="dateAdded">
-            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-            <mat-cell *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </mat-cell>
-          </ng-container>      
-          <!-- Name Column -->
+
+            <th *matHeaderCellDef> Date </th>
+            <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
+
+          </ng-container>     
+
           <ng-container matColumnDef="username">
-              <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
-              <mat-cell *matCellDef="let donation"> {{donation.userId.username}} </mat-cell>
+
+              <th *matHeaderCellDef> User </th>
+              <td *matCellDef="let donation"> {{donation.userId.username}} </td>
+
           </ng-container>
-          <!-- Weight Column -->
+
           <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-            <mat-cell *matCellDef="let donation"> {{donation.projectId.title}} </mat-cell>
+
+            <th *matHeaderCellDef> Title </th>
+            <td *matCellDef="let donation"> {{donation.projectId.title}} </td>
+
           </ng-container>
+
           <ng-container matColumnDef="amount">
-            <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
-            <mat-cell *matCellDef="let donation"> {{donation.amount}} €</mat-cell>
+
+            <th *matHeaderCellDef> Amount </th>
+            <td *matCellDef="let donation"> {{donation.amount}} €</td>
+
           </ng-container>
-          <mat-header-row *matHeaderRowDef="['dateAdded', 'title', 'username', 'amount']"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: ['dateAdded', 'title', 'username', 'amount' ];"></mat-row>
+
+          <tr mat-header-row *matHeaderRowDef="displayedDonationsColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedDonationsColumns;"></tr>
   
-        </mat-table>
+        </table>
 
 </div>
