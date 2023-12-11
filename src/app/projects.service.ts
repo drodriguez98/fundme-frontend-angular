@@ -24,7 +24,7 @@ export class ProjectsService {
 
     const url = 'http://localhost:30030/projects/get';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = JSON.stringify({id: projectId});
+    const body = JSON.stringify({projectId: projectId});
     return this.http.post(url, body, {headers});
 
   }
