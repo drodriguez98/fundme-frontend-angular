@@ -54,4 +54,14 @@ export class UsersService {
     
   }
 
+  // Método para autenticar al usuario y obtener un token del backend
+
+  authenticateUser(username: string, password: string): Observable<any> {
+
+    const url = 'http://localhost:30030/users/authentication'; 
+    const body = { username, password };
+    return this.http.post(url, body);
+
+  }
+
 }
