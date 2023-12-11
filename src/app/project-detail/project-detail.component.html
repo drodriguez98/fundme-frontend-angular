@@ -1,0 +1,30 @@
+<div id="container">
+
+    <mat-card class="card">
+
+        <mat-card-title>Project details</mat-card-title>
+
+        <mat-card-content class="card-content">
+
+            <p> <mat-icon>list</mat-icon> <strong>Title </strong> {{ project.title }} </p>
+            <p> <mat-icon>list</mat-icon> <strong>Area </strong> {{ project.areaId.name }} </p>
+            <p> <mat-icon>list</mat-icon> <strong>User </strong> {{ project.userId.name }} </p>
+            <p> <mat-icon>list</mat-icon> <strong>Date </strong> {{ project.dateAdded | date:'yyyy/MM/dd'}} </p>
+            <p> <mat-icon>list</mat-icon> <strong>Description </strong> {{ project.description }} </p>
+            <p> <mat-icon>list</mat-icon> <strong>Total amount </strong> {{project.totalAmount }} </p>
+            
+        </mat-card-content>
+
+        <!-- 
+        <mat-card-actions align="end">
+
+            <button mat-raised-button type="button" (click)="editProject()"><mat-icon>edit</mat-icon></button>
+            <button mat-raised-button type="button" (click)="closeProject()"><mat-icon>close</mat-icon></button>
+            <button mat-raised-button color="warn" type="button" (click)="openDeleteDialog(project.id)"><mat-icon>delete</mat-icon></button>
+
+        </mat-card-actions>
+        -->
+
+    </mat-card>
+
+</div>
