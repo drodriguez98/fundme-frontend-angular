@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { ProjectsService } from '../projects.service';
+import { ProjectsService } from '../../service/projects.service';
 
 @Component({
   selector: 'app-project-home',

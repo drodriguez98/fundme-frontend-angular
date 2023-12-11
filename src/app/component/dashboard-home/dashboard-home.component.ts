@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProjectsService } from '../projects.service';
-import { DonationsService } from '../donations.service';
+import { ProjectsService } from '../../service/projects.service';
+import { DonationsService } from '../../service/donations.service';
 
 @Component({
   selector: 'app-dashboard-home',

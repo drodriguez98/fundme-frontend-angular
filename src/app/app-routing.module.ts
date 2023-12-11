@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectHomeComponent } from './project-home/project-home.component';
-import { DonationHomeComponent } from './donation-home/donation-home.component';
-import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
-import { LoginHomeComponent } from './login-home/login-home.component';
+import { ProjectHomeComponent } from './component/project-home/project-home.component';
+import { DonationHomeComponent } from './component/donation-home/donation-home.component';
+import { DashboardHomeComponent } from './component/dashboard-home/dashboard-home.component';
+import { LoginHomeComponent } from './component/login-home/login-home.component';
 import { AuthGuard } from './auth/auth.guard'; // Importa el AuthGuard
-import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 
 const routes: Routes = [
   // Rutas públicas

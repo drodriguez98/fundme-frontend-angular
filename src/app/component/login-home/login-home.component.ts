@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../service/users.service';
 
 @Component({
   selector: 'app-login-home',
