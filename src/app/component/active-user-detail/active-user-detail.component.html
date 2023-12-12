@@ -1,0 +1,34 @@
+<div id="container" *ngIf="userDetails">
+
+    <h1>User Details</h1>
+
+    <mat-card class="card">
+
+        <mat-card-content class="card-content">
+
+            <p><strong>Name</strong></p>
+            <p>{{ userDetails.name }}</p>
+
+            <p><strong>Username</strong></p> 
+            <p>{{ userDetails.username }}</p>
+
+            <p><strong>Country</strong></p> 
+            <p>{{ userDetails.countryId.name }}</p>
+            
+            <p><strong>Email</strong></p> 
+            <p>{{ userDetails.email }}</p>
+
+            <p><strong>Postal Code</strong></p> 
+            <p>{{ userDetails.postalCode }}</p>
+
+            <p><strong>Phone</strong></p> 
+            <p>{{ userDetails.phone }}</p>
+
+            <p><strong>Active</strong></p> 
+            <p>{{ userDetails.active }}</p>
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

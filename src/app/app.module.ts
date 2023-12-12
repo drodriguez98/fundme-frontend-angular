@@ -12,6 +12,7 @@ import { LoginHomeComponent } from './component/login-home/login-home.component'
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
+import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectDetailComponent } from './component/project-detail/project-detai
     DonationHomeComponent,
     DashboardHomeComponent,
     LoginHomeComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ActiveUserDetailComponent
   ],
   imports: [
     BrowserModule,
