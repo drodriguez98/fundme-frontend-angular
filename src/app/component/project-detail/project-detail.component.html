@@ -1,4 +1,4 @@
-<div class="container">
+<div id="container">
 
     <mat-card class="project-details-card">
 
@@ -90,15 +90,15 @@
 
                 <mat-card class="comment-card">
 
-                    <mat-card-content>
+                    <div class="comment-title">
 
-                        <p>User</p>
-                        <p> {{ comment.userId.username }}</p>
-
-                        <p>Date</p>
                         <p> {{ comment.dateAdded | date:'yyyy/MM/dd' }}</p>
+                        <p> {{ comment.userId.username }}</p>
+                        
+                    </div>
 
-                        <p>Content</p>
+                    <mat-card-content class="comment">
+
                         <p> {{comment.content }} </p>
 
                     </mat-card-content>
