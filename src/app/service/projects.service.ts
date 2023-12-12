@@ -59,4 +59,23 @@ export class ProjectsService {
     
   }
 
+  getDonationsByProjectId(projectId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/donations/getByProject';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({projectId: projectId});
+    return this.http.post(url, body, {headers});
+
+  }
+
+  getCommentsByProjectId(projectId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/comments/getByProject';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({projectId: projectId});
+    return this.http.post(url, body, {headers});
+
+  }
+
+
 }

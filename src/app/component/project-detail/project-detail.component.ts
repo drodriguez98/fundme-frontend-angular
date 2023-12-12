@@ -14,6 +14,8 @@ import { MatDialog } from '@angular/material';
 export class ProjectDetailComponent implements OnInit {
 
   project: any;
+  donations: any[] = [];
+  comments: any[] = [];
 
   constructor(
 
@@ -24,6 +26,25 @@ export class ProjectDetailComponent implements OnInit {
   
   ) {}
 
-  ngOnInit() { this.projectsService.getProject(this.route.snapshot.params['id']).subscribe(data => { this.project = data }) }
+  ngOnInit() {
+    const projectId = +this.route.snapshot.params['id'];
+    this.projectsService.getProject(projectId).subscribe(data => {
+      this.project = data;
+      this.loadDonations(projectId);
+      this.loadComments(projectId);
+    });
+  }
+
+  loadDonations(projectId: number) {
+    this.projectsService.getDonationsByProjectId(projectId).subscribe(donations => {
+      this.donations = donations;
+    });
+  }
+
+  loadComments(projectId: number) {
+    this.projectsService.getCommentsByProjectId(projectId).subscribe(comments => {
+      this.comments = comments;
+    });
+  }
 
 }
