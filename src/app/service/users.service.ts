@@ -5,14 +5,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersService {
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<any> {
+
     const url = 'http://localhost:30030/users/all';
     const headers = new HttpHeaders();
     return this.http.get<any>(url, { headers });
+    
   }
 
   getUser(userId: number): Observable<any> {
