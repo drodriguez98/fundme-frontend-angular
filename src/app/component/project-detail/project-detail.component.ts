@@ -47,4 +47,6 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  displayedColumns: string[] = ['dateAdded', 'username', 'amount' ];
+
 }
