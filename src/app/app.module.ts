@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectHomeComponent } from './component/project-home/project-home.component';
-import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRadioModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DonationHomeComponent } from './component/donation-home/donation-home.component';
 import { DashboardHomeComponent } from './component/dashboard-home/dashboard-home.component';
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
+import { ProjectNewComponent } from './project-new/project-new.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ActiveUserDetailComponent } from './component/active-user-detail/active
     DashboardHomeComponent,
     LoginHomeComponent,
     ProjectDetailComponent,
-    ActiveUserDetailComponent
+    ActiveUserDetailComponent,
+    ProjectNewComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,9 @@ import { ActiveUserDetailComponent } from './component/active-user-detail/active
     MatIconModule,
     MatInputModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

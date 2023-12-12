@@ -7,6 +7,7 @@ import { LoginHomeComponent } from './component/login-home/login-home.component'
 import { AuthGuard } from './auth/auth.guard'; // Importa el AuthGuard
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
+import { ProjectNewComponent } from './project-new/project-new.component';
 
 const routes: Routes = [
   // Rutas públicas
@@ -15,27 +16,32 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardHomeComponent,
-    canActivate: [AuthGuard] // Protege la ruta con AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: 'projects',
     component: ProjectHomeComponent,
-    canActivate: [AuthGuard] // Protege la ruta con AuthGuard
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'project/new',
+    component: ProjectNewComponent,
+    canActivate: [AuthGuard] 
   },
   {
     path: 'project/:id',
     component: ProjectDetailComponent,
-    canActivate: [AuthGuard] // Protege la ruta con AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: 'donations',
     component: DonationHomeComponent,
-    canActivate: [AuthGuard] // Protege la ruta con AuthGuard
+    canActivate: [AuthGuard] 
   },
   {
     path: 'profile',
     component: ActiveUserDetailComponent,
-    canActivate: [AuthGuard] // Protege la ruta con AuthGuard
+    canActivate: [AuthGuard] 
   },
   // Ruta predeterminada: redirige a dashboard si está autenticado, de lo contrario a login
   {

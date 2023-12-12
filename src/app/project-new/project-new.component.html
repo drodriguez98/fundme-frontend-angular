@@ -1,0 +1,66 @@
+<mat-card class="card">
+
+    <mat-card-title>Add project</mat-card-title>
+
+    <mat-card-content class="card-content">
+
+        <form (submit)="newProject()">
+
+            <mat-form-field>
+
+                <mat-label>Area</mat-label>
+
+                <mat-select name="area" [(ngModel)]="area.areaId">
+
+                    <mat-option *ngFor="let area of areas" [value]="area.areaId"> {{ area.name }} </mat-option>
+                    
+                </mat-select>
+                
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Title</mat-label>
+
+                <input matInput type="text" name="title" [(ngModel)]="project.title" class="text-center"/>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Description</mat-label>
+
+                <input matInput type="text" name="description" [(ngModel)]="project.description" class="text-center"/>
+
+            </mat-form-field>
+
+            <!--
+            <mat-form-field appearance="outline">
+
+                <mat-label>Total amount</mat-label>
+
+                <input matInput type="number" name="totalAmount" [(ngModel)]="project.totalAmount"/>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+
+                <mat-label>Date added</mat-label>
+
+                <input matInput type="date" name="date_added" [(ngModel)]="project.date_added"/>
+
+            </mat-form-field>
+            -->
+            
+            <div class="buttons">
+
+                <button mat-raised-button color="primary" type="submit"><mat-icon>save</mat-icon></button>
+                <button mat-raised-button color="warn" type="button" (click)="cancelInsert()"><mat-icon>cancel</mat-icon></button>
+
+            </div>
+
+        </form>
+
+    </mat-card-content>
+
+</mat-card>
