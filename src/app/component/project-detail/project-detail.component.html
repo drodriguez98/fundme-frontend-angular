@@ -1,10 +1,10 @@
-<div id="container">
+<div class="container">
 
-    <h1>Project details</h1>
+    <mat-card class="project-details-card">
 
-    <mat-card class="card">
+      <mat-card-header> <mat-card-title>Project Details</mat-card-title> </mat-card-header>
 
-        <mat-card-content class="card-content">
+      <mat-card-content>
 
             <p> <strong>Date </strong></p>
             <p>{{ project.dateAdded | date:'yyyy/MM/dd'}} </p>
@@ -38,30 +38,77 @@
 
     </mat-card>
 
-    <h2>Donaciones</h2>
-    <ul>
-      <li *ngFor="let donation of donations">
-        <p>Date</p>
-        <p> {{ donation.dateAdded }}</p>
-        <p>User</p>
-        <p> {{donation.userId.username }} </p>
-        <p>Project</p>
-        <p> {{donation.projectId.title }} </p>
-        <p>Amount</p>
-        <p> {{ donation.amount }}</p>
-      </li>
-    </ul>
+    <!-- Donations -->
 
-    <h2>Comentarios</h2>
-    <ul>
-      <li *ngFor="let comment of comments">
-        <p>User</p>
-        <p> {{ comment.userId.username }}</p>
-        <p>Date</p>
-        <p> {{ comment.dateAdded }}</p>
-        <p>Content</p>
-        <p> {{comment.content }} </p>
-      </li>
-    </ul>
+    <mat-card class="donations-card">
+
+        <mat-card-header> <mat-card-title>Donations</mat-card-title> </mat-card-header>
+
+        <mat-card-content>
+
+            <table mat-table [dataSource]="donations" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="dateAdded">
+        
+                    <th *matHeaderCellDef> Date </th>
+                    <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
+        
+                </ng-container>     
+        
+                <ng-container matColumnDef="username">
+        
+                    <th *matHeaderCellDef> User </th>
+                    <td *matCellDef="let donation"> {{donation.userId.username}} </td>
+        
+                </ng-container>
+        
+                <ng-container matColumnDef="amount">
+        
+                    <th *matHeaderCellDef> Amount </th>
+                    <td *matCellDef="let donation"> {{donation.amount}} €</td>
+        
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+            </table>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Comments -->
+
+    <mat-card class="comments-card">
+
+        <mat-card-header> <mat-card-title>Comments</mat-card-title> </mat-card-header>
+
+        <mat-card-content>
+
+            <div *ngFor="let comment of comments">
+
+                <mat-card class="comment-card">
+
+                    <mat-card-content>
+
+                        <p>User</p>
+                        <p> {{ comment.userId.username }}</p>
+
+                        <p>Date</p>
+                        <p> {{ comment.dateAdded | date:'yyyy/MM/dd' }}</p>
+
+                        <p>Content</p>
+                        <p> {{comment.content }} </p>
+
+                    </mat-card-content>
+
+                </mat-card>
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
 
 </div>
