@@ -3,9 +3,9 @@ import { Country } from "./Country"
 export class User {
     name : string;
     password: string;
-    date_added: Date;
-    country_id: Country;
-    postal_code: number;
+    dateAdded: Date;
+    countryId: Country;
+    postalCode: number;
     email: string;
     phone: string;
     active: boolean;
