@@ -21,30 +21,42 @@ export class ProjectDetailComponent implements OnInit {
 
     private projectsService: ProjectsService, 
     private route: ActivatedRoute, 
-    private router: Router,
     public dialog: MatDialog
   
   ) {}
 
   ngOnInit() {
+
     const projectId = +this.route.snapshot.params['id'];
+
     this.projectsService.getProject(projectId).subscribe(data => {
+
       this.project = data;
       this.loadDonations(projectId);
       this.loadComments(projectId);
+
     });
+
   }
 
   loadDonations(projectId: number) {
+
     this.projectsService.getDonationsByProjectId(projectId).subscribe(donations => {
+
       this.donations = donations;
+
     });
+
   }
 
   loadComments(projectId: number) {
+
     this.projectsService.getCommentsByProjectId(projectId).subscribe(comments => {
+
       this.comments = comments;
+
     });
+    
   }
 
   displayedColumns: string[] = ['dateAdded', 'username', 'amount' ];

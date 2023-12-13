@@ -37,7 +37,6 @@ export class ProjectNewComponent implements OnInit {
     
     this.userDetails = this.authService.decodeAuthenticatedUserToken();
 
-
     if (this.userDetails) {
 
       this.usersService.getUser(this.userDetails.userId).subscribe((user: any) => { this.userDetails = user; })
