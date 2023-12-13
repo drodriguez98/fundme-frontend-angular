@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from '../model/Project';
+import { Project } from '../../model/Project';
 import { Router } from '@angular/router';
-import { Area } from '../model/Area';
-import { ProjectsService } from '../service/projects.service';
-import { AreasService } from '../service/areas.service';
-import { AuthService } from '../auth/auth.service';
-import { UsersService } from '../service/users.service';
+import { Area } from '../../model/Area';
+import { ProjectsService } from '../../service/projects.service';
+import { AreasService } from '../../service/areas.service';
+import { AuthService } from '../../auth/auth.service';
+import { UsersService } from '../../service/users.service';
 
 @Component({
   selector: 'app-project-new',
