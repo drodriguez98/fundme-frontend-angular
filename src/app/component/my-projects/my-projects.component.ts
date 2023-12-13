@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { ProjectsService } from '../../service/projects.service';
 import { UsersService } from 'src/app/service/users.service';
 import { AuthService } from 'src/app/auth/auth.service';
-
 
 @Component({
   selector: 'app-my-projects',
   templateUrl: './my-projects.component.html',
   styleUrls: ['./my-projects.component.css']
 })
+
 export class MyProjectsComponent implements OnInit {
 
   projects: any = [];
@@ -46,9 +45,13 @@ export class MyProjectsComponent implements OnInit {
   }
 
   loadMyProjects(userId: number) {
+
     this.usersService.getProjectsByUserId(userId).subscribe(projects => {
+
       this.projects = projects;
+      
     });
+
   }
 
   openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
