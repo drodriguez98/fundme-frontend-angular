@@ -2,46 +2,58 @@
 
   <!-- Top projects -->
 
-    <h1>Top projects</h1>
+  <mat-card class="projects-card">
 
-    <table mat-table [dataSource]="projects" class="mat-elevation-z8">
+    <mat-card-header> <mat-card-title>Top projects</mat-card-title> </mat-card-header>
 
-        <ng-container matColumnDef="dateAdded">
+    <mat-card-content>
 
-          <th *matHeaderCellDef> Date </th>
-          <td *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </td>
+      <table mat-table [dataSource]="projects" class="mat-elevation-z8">
 
-        </ng-container>    
+          <ng-container matColumnDef="dateAdded">
 
-        <ng-container matColumnDef="title">
+            <th *matHeaderCellDef> Date </th>
+            <td *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </td>
 
-          <th *matHeaderCellDef> Project </th>
-          <td *matCellDef="let project"> {{project.title}} </td>
+          </ng-container>    
 
-        </ng-container>
+          <ng-container matColumnDef="title">
 
-        <ng-container matColumnDef="username">
+            <th *matHeaderCellDef> Project </th>
+            <td *matCellDef="let project"> {{project.title}} </td>
 
-          <th *matHeaderCellDef> User </th>
-          <td *matCellDef="let project"> {{project.userId.username}} </td>
+          </ng-container>
 
-        </ng-container>
+          <ng-container matColumnDef="username">
 
-        <ng-container matColumnDef="totalAmount">
+            <th *matHeaderCellDef> User </th>
+            <td *matCellDef="let project"> {{project.userId.username}} </td>
 
-          <th *matHeaderCellDef> Amount </th>
-          <td *matCellDef="let project"> {{project.totalAmount}} €</td>
+          </ng-container>
 
-        </ng-container>
+          <ng-container matColumnDef="totalAmount">
 
-        <tr mat-header-row *matHeaderRowDef="displayedProjectsColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedProjectsColumns;" (click)="openDetailProjectsForm(row)"></tr>
-      
-      </table>
+            <th *matHeaderCellDef> Amount </th>
+            <td *matCellDef="let project"> {{project.totalAmount}} €</td>
 
-      <!-- Top donations -->
+          </ng-container>
 
-      <h1>Top donations</h1>
+          <tr mat-header-row *matHeaderRowDef="displayedProjectsColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedProjectsColumns;" (click)="openDetailProjectsForm(row)"></tr>
+        
+        </table>
+
+      </mat-card-content>
+
+    </mat-card>
+
+    <!-- Top donations -->
+
+  <mat-card class="donations-card">
+
+    <mat-card-header> <mat-card-title>Top donations</mat-card-title> </mat-card-header>
+
+    <mat-card-content>
 
       <table mat-table [dataSource]="donations" class="mat-elevation-z8">
 
@@ -75,7 +87,11 @@
 
           <tr mat-header-row *matHeaderRowDef="displayedDonationsColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedDonationsColumns;"></tr>
-  
+
       </table>
+
+    </mat-card-content>
+
+  </mat-card>
 
 </div>

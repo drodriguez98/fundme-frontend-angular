@@ -2,27 +2,30 @@
 
     <mat-card class="project-details-card">
 
-      <mat-card-header> <mat-card-title>Project Details</mat-card-title> </mat-card-header>
+      <mat-card-header> <mat-card-title>Project {{ project.projectId }}</mat-card-title> </mat-card-header>
 
       <mat-card-content>
 
-            <p> <strong>Date </strong></p>
-            <p>{{ project.dateAdded | date:'yyyy/MM/dd'}} </p>
+            <div class="intro">
 
-            <p> <strong>Area </strong></p>
-            <p>{{ project.areaId.name }} </p>
 
-            <p><strong>User </strong></p> 
-            <p>{{ project.userId.name }} </p>
+                <p><strong>{{ project.dateAdded | date:'yyyy/MM/dd'}}</strong></p>
 
-            <p> <strong>Title</strong></p>
+                <p><strong>{{ project.areaId.name }}</strong></p>
+
+                <p><strong>{{ project.userId.name }}</strong></p>
+
+            </div>
+
             <p> {{ project.title }} </p>
 
-            <p> <strong>Description </strong></p>
             <p>{{ project.description }} </p>
             
-            <p> <strong>Total amount </strong></p>
-            <p>{{project.totalAmount }} </p>
+            <div class="amount">
+
+                <p><strong>Total amount </strong> = {{project.totalAmount }} €</p>
+                
+            </div>
             
         </mat-card-content>
 
@@ -36,8 +39,11 @@
         </mat-card-actions>
         -->
 
-        <div id="donateButtonContainer">Collaborate<a mat-stroked-button routerLink="/project/donate/{{ project.projectId }}"><mat-icon>money</mat-icon></a> </div>
-        <div id="commentButtonContainer">Comment<a mat-stroked-button routerLink="/project/comment/{{ project.projectId }}"><mat-icon>comment</mat-icon></a> </div>
+        <div id="buttonsContainer">
+            
+            <a mat-stroked-button routerLink="/project/donate/{{ project.projectId }}"><mat-icon>payment</mat-icon></a>
+            <a mat-stroked-button routerLink="/project/comment/{{ project.projectId }}"><mat-icon>comment</mat-icon></a>
+        </div>
 
     </mat-card>
 

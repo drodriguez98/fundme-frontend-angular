@@ -1,40 +1,48 @@
 <div id="container">
 
-    <h1>My donations</h1>
+  <mat-card class="donations-card">
 
-    <table mat-table [dataSource]="donations" class="mat-elevation-z8">
+    <mat-card-header> <mat-card-title>My donations</mat-card-title> </mat-card-header>
 
-      <ng-container matColumnDef="dateAdded">
+    <mat-card-content>
 
-        <th *matHeaderCellDef> Date </th>
-        <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
+      <table mat-table [dataSource]="donations" class="mat-elevation-z8">
 
-      </ng-container>     
+        <ng-container matColumnDef="dateAdded">
 
-      <ng-container matColumnDef="username">
+          <th *matHeaderCellDef> Date </th>
+          <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
 
-          <th *matHeaderCellDef> User </th>
-          <td *matCellDef="let donation"> {{donation.userId.username}} </td>
+        </ng-container>     
 
-      </ng-container>
+        <ng-container matColumnDef="username">
 
-      <ng-container matColumnDef="title">
+            <th *matHeaderCellDef> User </th>
+            <td *matCellDef="let donation"> {{donation.userId.username}} </td>
 
-        <th *matHeaderCellDef> Title </th>
-        <td *matCellDef="let donation"> {{donation.projectId.title}} </td>
+        </ng-container>
 
-      </ng-container>
+        <ng-container matColumnDef="title">
 
-      <ng-container matColumnDef="amount">
+          <th *matHeaderCellDef> Title </th>
+          <td *matCellDef="let donation"> {{donation.projectId.title}} </td>
 
-        <th *matHeaderCellDef> Amount </th>
-        <td *matCellDef="let donation"> {{donation.amount}} €</td>
+        </ng-container>
 
-      </ng-container>
+        <ng-container matColumnDef="amount">
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <th *matHeaderCellDef> Amount </th>
+          <td *matCellDef="let donation"> {{donation.amount}} €</td>
 
-    </table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+    </mat-card-content>
+
+  </mat-card>
 
 </div>

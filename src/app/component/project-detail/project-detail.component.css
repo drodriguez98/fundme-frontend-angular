@@ -13,7 +13,21 @@
     padding: 40px;
 }
 
-/* Estilos adicionales para las tarjetas de Angular Material */
+.donations-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-card {
+    margin-bottom: 30px;
+}
+
+.comment-card {
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto;
+    width: 85%;
+}
 
 mat-card-header {
     align-items: center;
@@ -23,30 +37,41 @@ mat-card-header,
 mat-card-content {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 mat-card-title {
     margin: 25px auto;
 }
 
+mat-card-content .intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
 .project-details-card mat-card-content p {
     margin: 10px auto;
 }
 
-.comment-card {
+.project-details-card mat-card-content .amount {
+    margin: 40px auto;
     display: flex;
-    flex-direction: column;
-    margin: 25px auto;
-    width: 85%;
+    justify-content: center;
+}
 
+#buttonsContainer {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* Estilos para la tabla de donaciones */
 table {
     width: 85%;
     border-collapse: collapse;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 th, td {

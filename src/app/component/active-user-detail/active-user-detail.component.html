@@ -1,31 +1,57 @@
 <div id="container" *ngIf="userDetails">
 
-    <h1>User Details</h1>
+    <mat-card class="user-details-card">
 
-    <mat-card class="card">
+        <mat-card-header> <mat-card-title>My profile</mat-card-title> </mat-card-header>
+    
+        <mat-card-content>
 
-        <mat-card-content class="card-content">
+            <div class="column">
 
-            <p><strong>Name</strong></p>
-            <p>{{ userDetails.name }}</p>
+                <div class="detail">
+                    <p><strong>Name</strong></p>
+                    <p>{{ userDetails.name }}</p>     
+                </div>
 
-            <p><strong>Username</strong></p> 
-            <p>{{ userDetails.username }}</p>
+                <div class="detail">
+                    <p><strong>Username</strong></p> 
+                    <p>{{ userDetails.username }}</p> 
+                </div>
 
-            <p><strong>Country</strong></p> 
-            <p>{{ userDetails.countryId.name }}</p>
-            
-            <p><strong>Email</strong></p> 
-            <p>{{ userDetails.email }}</p>
+                <div class="detail">
+                    <p><strong>Email</strong></p> 
+                    <p>{{ userDetails.email }}</p>
+                </div>
 
-            <p><strong>Postal Code</strong></p> 
-            <p>{{ userDetails.postalCode }}</p>
+            </div>
 
-            <p><strong>Phone</strong></p> 
-            <p>{{ userDetails.phone }}</p>
+            <div class="column">
 
-            <p><strong>Active</strong></p> 
-            <p>{{ userDetails.active }}</p>
+                <div class="detail">
+                    <p><strong>Country</strong></p> 
+                    <p>{{ userDetails.countryId.name }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Postal Code</strong></p> 
+                    <p>{{ userDetails.postalCode }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Phone</strong></p> 
+                    <p>{{ userDetails.phone }}</p>
+                </div>
+                
+            </div>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Active</strong></p> 
+                    <p>{{ userDetails.active }}</p>
+                </div>
+
+            </div>
 
         </mat-card-content>
 
