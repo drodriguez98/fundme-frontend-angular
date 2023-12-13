@@ -18,6 +18,7 @@ import { MyProjectsComponent } from './component/my-projects/my-projects.compone
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
 import { DonationNewComponent } from './component/donation-new/donation-new.component';
 import { CommentNewComponent } from './component/comment-new/comment-new.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CommentNewComponent } from './component/comment-new/comment-new.compone
     MyDonationsComponent,
     DonationNewComponent,
     CommentNewComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
