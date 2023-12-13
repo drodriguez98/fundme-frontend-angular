@@ -1,11 +1,11 @@
 <div *ngIf="authService.isAuthenticated()" class="navbar">
     <ul class="nav-menu">
-      <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/dashboard" routerLinkActive="active"><mat-icon>home</mat-icon></a></li>
       <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
-      <li><a routerLink="/donations" routerLinkActive="active">Donations</a></li>
       <li><a routerLink="/projects/myprojects" routerLinkActive="active">My projects</a></li>
+      <li><a routerLink="/donations" routerLinkActive="active">Donations</a></li>
       <li><a routerLink="/donations/mydonations" routerLinkActive="active">My donations</a></li>
-      <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+      <li><a routerLink="/profile" routerLinkActive="active"><mat-icon>account_circle</mat-icon></a></li>
     </ul>
 </div>
 

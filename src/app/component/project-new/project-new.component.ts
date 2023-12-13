@@ -58,9 +58,10 @@ export class ProjectNewComponent implements OnInit {
       areaId: this.area,
       description: this.project.description,
       totalAmount: 0,
+      
     }
 
-    console.log(newProject);
+    // console.log(newProject);
     
     this.projectsService.newProject(newProject);
 

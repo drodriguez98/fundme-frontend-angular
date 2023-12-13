@@ -2,24 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
-    background-color: rgb(127, 189, 119);
+    padding: 20px;
+    background-color: rgb(16, 17, 16);
 }
 
 .nav-menu {
     display: flex;
-    width: 100%;
+    width: 45%;
     justify-content: center;
     list-style: none;
 }
 
 .nav-menu li {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px;
 }
 
 .nav-menu li a {
     text-decoration: none;
-    font-size: 25px;
-    color: black;
+    font-size: 22px;
+    color: rgb(247, 247, 197);
 }

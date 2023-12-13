@@ -6,15 +6,20 @@
     align-items: center;
 }
 
+
 form {
     display: flex;
     flex-direction: column;
     padding: 20px;
     width: 20%;
-    border: 1px solid grey;
+    border: 1px solid rgb(127, 189, 119);
     border-radius: 3px;
-    margin: 150px 0;
+    margin: auto 0;
     min-width: 400px;
+}
+
+form h1 {
+    margin: 40px auto;
 }
 
 mat-form-field {
@@ -25,7 +30,7 @@ mat-form-field {
 
 .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 form button {
