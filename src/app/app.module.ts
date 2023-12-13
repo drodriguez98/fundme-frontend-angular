@@ -14,6 +14,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
+import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProjectNewComponent } from './project-new/project-new.component';
     LoginHomeComponent,
     ProjectDetailComponent,
     ActiveUserDetailComponent,
-    ProjectNewComponent
+    ProjectNewComponent,
+    MyProjectsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+<div id="container">
+
+    <div id="newProjectButtonContainer"> <a mat-stroked-button routerLink="/project/new">New project</a> </div>
+
+    <h1>My projects</h1>
+
+    <table mat-table [dataSource]="projects" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="dateAdded">
+          <th *matHeaderCellDef> Date </th>
+          <td *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </td>
+        </ng-container>      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="title">
+          <th *matHeaderCellDef> Title </th>
+          <td *matCellDef="let project"> {{project.title}} </td>
+        </ng-container>
+      
+        <!-- 
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let project"> {{project.description}} </mat-cell>
+        </ng-container>
+        -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="username">
+          <th *matHeaderCellDef> User </th>
+          <td *matCellDef="let project"> {{project.userId.username}} </td>
+        </ng-container>
+        <ng-container matColumnDef="totalAmount">
+          <th *matHeaderCellDef> Amount </th>
+          <td *matCellDef="let project"> {{project.totalAmount}} €</td>
+        </ng-container>
+      
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDetailForm(row)"></tr>
+
+      </table>
+
+</div>

@@ -66,5 +66,14 @@ export class UsersService {
     return this.http.post(url, body);
 
   }
+
+  getProjectsByUserId(userId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/projects/getByUser';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({userId: userId});
+    return this.http.post(url, body, {headers});
+
+  }
   
 }

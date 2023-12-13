@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard'; // Importa el AuthGuard
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
+import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 
 const routes: Routes = [
   // Rutas públicas
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'project/new',
     component: ProjectNewComponent,
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'projects/myprojects',
+    component: MyProjectsComponent,
     canActivate: [AuthGuard] 
   },
   {
