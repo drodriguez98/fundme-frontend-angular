@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { UsersService } from 'src/app/service/users.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { ProjectDeleteComponent } from '../project-delete/project-delete.component';
 
 @Component({
   selector: 'app-my-projects',
@@ -56,6 +57,10 @@ export class MyProjectsComponent implements OnInit {
 
   openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
 
-  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount'];
+  editProjectDetail(project: any) { this.router.navigate(['/project/edit', project]); }
+
+  openDeleteDialog (projectId: number): void { this.dialog.open(ProjectDeleteComponent, { data: { projectId: projectId } }); }
+
+  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount', 'actions'];
 
 }

@@ -4,7 +4,7 @@
 
   <mat-card class="projects-card">
 
-    <mat-card-header> <mat-card-title>Projects</mat-card-title> </mat-card-header>
+    <mat-card-header> <mat-card-title>My projects</mat-card-title> </mat-card-header>
 
     <mat-card-content>
 
@@ -36,6 +36,17 @@
             <th *matHeaderCellDef> Amount </th>
             <td *matCellDef="let project"> {{project.totalAmount}} €</td>
 
+          </ng-container>
+
+          
+          <ng-container matColumnDef="actions">
+
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let project">
+              <!-- <button mat-icon-button color="primary" (click)="editProjectDetail(project.projectId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button> -->
+              <button mat-icon-button color="warn" (click)="openDeleteDialog(project.projectId); $event.stopPropagation()"> <mat-icon>delete</mat-icon> </button>
+            </td>
+      
           </ng-container>
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

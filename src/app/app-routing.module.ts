@@ -4,7 +4,7 @@ import { ProjectHomeComponent } from './component/project-home/project-home.comp
 import { DonationHomeComponent } from './component/donation-home/donation-home.component';
 import { DashboardHomeComponent } from './component/dashboard-home/dashboard-home.component';
 import { LoginHomeComponent } from './component/login-home/login-home.component';
-import { AuthGuard } from './auth/auth.guard'; // Importa el AuthGuard
+import { AuthGuard } from './auth/auth.guard'
 import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
 import { ProjectNewComponent } from './component/project-new/project-new.component';
@@ -13,6 +13,7 @@ import { MyDonationsComponent } from './component/my-donations/my-donations.comp
 import { DonationNewComponent } from './component/donation-new/donation-new.component';
 import { CommentNewComponent } from './component/comment-new/comment-new.component';
 import { RegisterComponent } from './component/register/register.component';
+
 
 const routes: Routes = [
   // Rutas públicas
@@ -40,6 +41,11 @@ const routes: Routes = [
     canActivate: [AuthGuard] 
   },
   {
+    path: 'project/:id',
+    component: ProjectDetailComponent,
+    canActivate: [AuthGuard] 
+  },
+  {
     path: 'project/donate/:id',
     component: DonationNewComponent,
     canActivate: [AuthGuard] 
@@ -47,11 +53,6 @@ const routes: Routes = [
   {
     path: 'project/comment/:id',
     component: CommentNewComponent,
-    canActivate: [AuthGuard] 
-  },
-  {
-    path: 'project/:id',
-    component: ProjectDetailComponent,
     canActivate: [AuthGuard] 
   },
   {

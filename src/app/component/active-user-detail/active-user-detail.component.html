@@ -48,12 +48,16 @@
 
                 <div class="detail">
                     <p><strong>Active</strong></p> 
-                    <p>{{ userDetails.active }}</p>
+                    <mat-icon [style.color]="userDetails.active ? 'green' : 'red'"> {{userDetails.active ? 'check' : 'close'}} </mat-icon>
                 </div>
 
             </div>
 
         </mat-card-content>
+
+        <!-- <button mat-icon-button color="primary" (click)="editUserDetail(userDetails.userId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button> -->
+
+        <button mat-icon-button color="warn" (click)="openDeleteDialog(userDetails.userId); $event.stopPropagation()"> <mat-icon>delete</mat-icon> </button>
 
     </mat-card>
 

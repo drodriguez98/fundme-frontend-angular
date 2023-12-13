@@ -18,8 +18,10 @@
     transition: transform 0.1s ease-in-out;
     font-family: 'Abel', sans-serif;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 16px;
-    padding: 8px;
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgb(16, 17, 16);
+    color: rgb(247, 247, 197);
 }
 
 #newProjectButtonContainer a:hover { transform: scale(1.02); }

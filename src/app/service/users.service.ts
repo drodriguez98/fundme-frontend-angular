@@ -48,7 +48,7 @@ export class UsersService {
   deleteUser (userId: number): void {
 
     const url = 'http://localhost:30030/users/delete';
-    const body = { id: userId };
+    const body = { userId: userId };
     const options = {
       body: body,
       headers: new HttpHeaders()

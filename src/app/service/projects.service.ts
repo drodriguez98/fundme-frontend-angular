@@ -50,7 +50,7 @@ export class ProjectsService {
   deleteProject (projectId: number): void {
 
     const url = 'http://localhost:30030/projects/delete';
-    const body = { id: projectId };
+    const body = { projectId: projectId };
     const options = {
       body: body,
       headers: new HttpHeaders()

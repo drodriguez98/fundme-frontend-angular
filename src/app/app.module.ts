@@ -19,6 +19,8 @@ import { MyDonationsComponent } from './component/my-donations/my-donations.comp
 import { DonationNewComponent } from './component/donation-new/donation-new.component';
 import { CommentNewComponent } from './component/comment-new/comment-new.component';
 import { RegisterComponent } from './component/register/register.component';
+import { ProjectDeleteComponent } from './component/project-delete/project-delete.component';
+import { ActiveUserDeleteComponent } from './component/active-user-delete/active-user-delete.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { RegisterComponent } from './component/register/register.component';
     DonationNewComponent,
     CommentNewComponent,
     RegisterComponent,
+    ProjectDeleteComponent,
+    ActiveUserDeleteComponent,
   ],
+  entryComponents: [ ProjectDeleteComponent, ActiveUserDeleteComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

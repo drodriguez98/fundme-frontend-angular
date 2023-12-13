@@ -6,7 +6,6 @@
 }
 
 .project-details-card,
-.donations-card,
 .comments-card {
     width: 45%;
     margin-top: 30px;
@@ -15,8 +14,13 @@
 }
 
 .donations-card {
+    width: 45%;
     display: flex;
     flex-direction: column;
+    margin: 30px auto;
+    margin-top: 30px;
+    padding: 40px;
+    border: 1px solid grey;
 }
 
 .comments-card {
@@ -68,23 +72,23 @@ mat-card-content .intro {
     justify-content: space-evenly;
 }
 
-/* Estilos para la tabla de donaciones */
-table {
-    width: 85%;
-    border-collapse: collapse;
+table { 
+    width: 90%; 
     margin: 0 auto;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
+table th {
+    font-size: 17px;
+    font-weight: bold;
 }
 
-th {
-    background-color: #e0e0e0;
+table td {
+    font-size: 15px;
+    text-align: center;
+
 }
 
-tr:nth-child(even) {
-    background-color: #fafafa;
+table tr:hover {
+    background-color: rgb(245, 250, 244);
 }
   

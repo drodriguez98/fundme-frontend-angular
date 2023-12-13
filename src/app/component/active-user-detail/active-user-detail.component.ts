@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UsersService } from 'src/app/service/users.service';
+import { ActiveUserDeleteComponent } from '../active-user-delete/active-user-delete.component';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 @Component({
 
@@ -14,36 +17,37 @@ export class ActiveUserDetailComponent implements OnInit {
 
   userDetails: any;
 
-  constructor(private authService: AuthService, private userService: UsersService) { }
+  constructor(
+    
+    private authService: AuthService, 
+    private userService: UsersService,
+    public router: Router,
+    public dialog: MatDialog 
 
-  ngOnInit(): void {
+  ) {}
 
-    // Obtener los detalles del usuario autenticado
+  ngOnInit() {
 
-    if (this.authService.isAuthenticated()) {
-      
-      this.userDetails = this.authService.decodeAuthenticatedUserToken();
-      
-      if (this.userDetails) {
+    this.userDetails = this.authService.decodeAuthenticatedUserToken();
 
-        this.userService.getUser(this.userDetails.id).subscribe(
+    if (this.userDetails) {
 
-          (user: any) => {
-
-            this.userDetails = user;
-
-          },
-
-          (error) => { console.error('Error al obtener detalles del usuario:', error); }
-
-        );
-      }
-    } else {
-
-      // Redirigir al formulario de inicio de sesión si el usuario no está autenticado
+      this.userService.getUser(this.userDetails.userId).subscribe(
+        
+        (user: any) => { 
+          
+          this.userDetails = user; 
+          
+        })
 
     }
 
   }
+
+  // openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
+
+  editUserDetail(user: any) { this.router.navigate(['/profile/edit', user]); }
+
+  openDeleteDialog (userId: number): void { this.dialog.open(ActiveUserDeleteComponent, { data: { userId: userId } }); }
 
 }
