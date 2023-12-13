@@ -48,7 +48,7 @@ export class MyDonationsComponent implements OnInit {
 
   loadMyDonations(userId: number) {
 
-    this.usersService.getProjectsByUserId(userId).subscribe(donations => {
+    this.usersService.getDonationsByUserId(userId).subscribe(donations => {
 
       this.donations = donations;
 
