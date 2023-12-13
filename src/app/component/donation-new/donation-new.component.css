@@ -11,7 +11,7 @@ form {
     flex-direction: column;
     padding: 20px;
     width: 20%;
-    border: 1px solid rgb(127, 189, 119);
+    border: 1px solid grey;
     border-radius: 3px;
     margin: 150px 0;
     min-width: 400px;
@@ -28,9 +28,8 @@ mat-form-field {
 form button {
     width: 10%;
     margin: 30px auto;
-    background-color: rgb(127, 189, 119);
 }
 
 form button:hover {
-    background-color: rgb(86, 163, 76);
+    background-color: rgb(47, 55, 77);
 }
