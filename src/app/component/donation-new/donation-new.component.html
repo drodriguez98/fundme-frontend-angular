@@ -1,0 +1,19 @@
+<div id="container">
+
+    <form (submit)="newDonation()">
+
+        <h1>Donate</h1>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Amount</mat-label>
+
+            <input matInput type="number" name="amount" [(ngModel)]="donation.amount" class="text-center"/>
+
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit"> <mat-icon>send</mat-icon> </button>
+
+      </form>
+      
+  </div>

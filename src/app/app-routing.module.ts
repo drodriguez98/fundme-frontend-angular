@@ -10,6 +10,8 @@ import { ActiveUserDetailComponent } from './component/active-user-detail/active
 import { ProjectNewComponent } from './component/project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
+import { DonationNewComponent } from './component/donation-new/donation-new.component';
+import { CommentNewComponent } from './component/comment-new/comment-new.component';
 
 const routes: Routes = [
   // Rutas públicas
@@ -33,6 +35,16 @@ const routes: Routes = [
   {
     path: 'projects/myprojects',
     component: MyProjectsComponent,
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'project/donate/:id',
+    component: DonationNewComponent,
+    canActivate: [AuthGuard] 
+  },
+  {
+    path: 'project/comment/:id',
+    component: CommentNewComponent,
     canActivate: [AuthGuard] 
   },
   {

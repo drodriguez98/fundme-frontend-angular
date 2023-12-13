@@ -16,6 +16,8 @@ import { ActiveUserDetailComponent } from './component/active-user-detail/active
 import { ProjectNewComponent } from './component/project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
+import { DonationNewComponent } from './component/donation-new/donation-new.component';
+import { CommentNewComponent } from './component/comment-new/comment-new.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MyDonationsComponent } from './component/my-donations/my-donations.comp
     ProjectNewComponent,
     MyProjectsComponent,
     MyDonationsComponent,
+    DonationNewComponent,
+    CommentNewComponent,
   ],
   imports: [
     BrowserModule,
