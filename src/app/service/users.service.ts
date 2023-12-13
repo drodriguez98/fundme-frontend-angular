@@ -75,5 +75,14 @@ export class UsersService {
     return this.http.post(url, body, {headers});
 
   }
+
+  getDonationsByUserId(userId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/donations/getByUser';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({userId: userId});
+    return this.http.post(url, body, {headers});
+
+  }
   
 }

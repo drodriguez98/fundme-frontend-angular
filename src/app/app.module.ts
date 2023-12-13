@@ -15,6 +15,7 @@ import { ProjectDetailComponent } from './component/project-detail/project-detai
 import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
 import { ProjectNewComponent } from './project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
+import { MyDonationsComponent } from './component/my-donations/my-donations.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MyProjectsComponent } from './component/my-projects/my-projects.compone
     ActiveUserDetailComponent,
     ProjectNewComponent,
     MyProjectsComponent,
+    MyDonationsComponent,
   ],
   imports: [
     BrowserModule,

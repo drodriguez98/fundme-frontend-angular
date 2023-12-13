@@ -1,0 +1,40 @@
+<div id="container">
+
+    <h1>My donations</h1>
+
+    <table mat-table [dataSource]="donations" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="dateAdded">
+
+        <th *matHeaderCellDef> Date </th>
+        <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
+
+      </ng-container>     
+
+      <ng-container matColumnDef="username">
+
+          <th *matHeaderCellDef> User </th>
+          <td *matCellDef="let donation"> {{donation.userId.username}} </td>
+
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+
+        <th *matHeaderCellDef> Title </th>
+        <td *matCellDef="let donation"> {{donation.title}} </td>
+
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+
+        <th *matHeaderCellDef> Amount </th>
+        <td *matCellDef="let donation"> {{donation.totalAmount}} €</td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+</div>
