@@ -1,7 +1,8 @@
 import { Country } from "./Country"
 
 export class User {
-    name : string;
+    userId: number;
+    name: string;
     password: string;
     dateAdded: Date;
     countryId: Country;
