@@ -2,7 +2,7 @@
 
     <mat-card class="user-details-card">
 
-        <mat-card-header> <mat-card-title>My profile</mat-card-title> </mat-card-header>
+        <h1>My profile </h1>
     
         <mat-card-content>
 
@@ -55,9 +55,14 @@
 
         </mat-card-content>
 
-        <!-- <button mat-icon-button color="primary" (click)="editUserDetail(userDetails.userId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button> -->
+        
 
-        <button mat-icon-button color="warn" (click)="openDeleteDialog(userDetails.userId); $event.stopPropagation()"> <mat-icon>delete</mat-icon> </button>
+        <div class="buttons">
+
+            <!-- <button mat-icon-button color="primary" (click)="editUserDetail(userDetails.userId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button> -->
+            <button mat-icon-button color="warn" (click)="openDeleteDialog(userDetails.userId); $event.stopPropagation()">Delete account</button>
+            
+        </div>
 
     </mat-card>
 

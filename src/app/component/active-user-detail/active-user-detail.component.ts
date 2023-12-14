@@ -18,13 +18,13 @@ export class ActiveUserDetailComponent implements OnInit {
   userDetails: any;
 
   constructor(
-    
-    private authService: AuthService, 
+
+    private authService: AuthService,
     private userService: UsersService,
     public router: Router,
-    public dialog: MatDialog 
+    public dialog: MatDialog
 
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -33,11 +33,11 @@ export class ActiveUserDetailComponent implements OnInit {
     if (this.userDetails) {
 
       this.userService.getUser(this.userDetails.userId).subscribe(
-        
-        (user: any) => { 
-          
-          this.userDetails = user; 
-          
+
+        (user: any) => {
+
+          this.userDetails = user;
+
         })
 
     }
@@ -48,6 +48,6 @@ export class ActiveUserDetailComponent implements OnInit {
 
   editUserDetail(user: any) { this.router.navigate(['/profile/edit', user]); }
 
-  openDeleteDialog (userId: number): void { this.dialog.open(ActiveUserDeleteComponent, { data: { userId: userId } }); }
+  openDeleteDialog(userId: number): void { this.dialog.open(ActiveUserDeleteComponent, { data: { userId: userId } }); }
 
 }
