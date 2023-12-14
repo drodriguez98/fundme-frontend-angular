@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Donation } from 'src/app/model/Donation';
 import { DonationsService } from 'src/app/service/donations.service';
+import { NotificationsService } from 'src/app/service/notifications.service';
 import { ProjectsService } from 'src/app/service/projects.service';
 import { UsersService } from 'src/app/service/users.service';
 
@@ -17,19 +18,20 @@ import { UsersService } from 'src/app/service/users.service';
 
 export class DonationNewComponent implements OnInit {
 
-  donation : Donation = new Donation();
+  donation: Donation = new Donation();
   project: any;
   userDetails: any;
 
   constructor(
 
-    private router: Router, 
-    private route: ActivatedRoute, 
+    private router: Router,
+    private route: ActivatedRoute,
     public dialog: MatDialog,
     private authService: AuthService,
     private usersService: UsersService,
-    private projectsService: ProjectsService, 
-    private donationService: DonationsService
+    private projectsService: ProjectsService,
+    private donationService: DonationsService,
+    private notificationsService: NotificationsService
 
   ) { }
 
@@ -67,10 +69,33 @@ export class DonationNewComponent implements OnInit {
     }
 
     console.log(newDonation);
-    
+
     this.donationService.newDonation(newDonation);
 
+    this.newNotification();
+
     this.navigateToMyDonations();
+
+  }
+
+  newNotification() {
+
+    const currentDate = new Date();
+
+    const newNotification = {
+
+      recipient: this.userDetails,
+      message: `${this.userDetails.username} ha donado ${this.donation.amount} € a tu proyecto '${this.project.title}'`,
+      createdDate: currentDate,
+      read: false,
+      relatedUser: this.project.userId,
+      relatedProject: this.project
+
+    }
+
+    console.log(newNotification);
+
+    this.notificationsService.newNotification(newNotification);
 
   }
 

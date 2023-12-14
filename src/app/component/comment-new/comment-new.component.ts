@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Comment } from 'src/app/model/Comment';
 import { CommentsService } from 'src/app/service/comments.service';
+import { NotificationsService } from 'src/app/service/notifications.service';
 import { ProjectsService } from 'src/app/service/projects.service';
 import { UsersService } from 'src/app/service/users.service';
 
@@ -21,15 +22,16 @@ export class CommentNewComponent implements OnInit {
 
   constructor(
 
-    private router: Router, 
-    private route: ActivatedRoute, 
+    private router: Router,
+    private route: ActivatedRoute,
     public dialog: MatDialog,
     private authService: AuthService,
     private usersService: UsersService,
-    private projectsService: ProjectsService, 
-    private commentService: CommentsService
+    private projectsService: ProjectsService,
+    private commentsService: CommentsService,
+    private notificationsService: NotificationsService
 
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -64,10 +66,33 @@ export class CommentNewComponent implements OnInit {
     }
 
     console.log(newComment);
-    
-    this.commentService.newComment(newComment);
+
+    this.commentsService.newComment(newComment);
+
+    this.newNotification();
 
     this.navigateToDashboard();
+
+  }
+
+  newNotification() {
+
+    const currentDate = new Date();
+
+    const newNotification = {
+
+      recipient: this.userDetails,
+      message: `${this.userDetails.username} ha comentado '${this.comment.content}' en tu proyecto '${this.project.title}'`,
+      createdDate: currentDate,
+      read: false,
+      relatedUser: this.project.userId,
+      relatedProject: this.project
+
+    }
+
+    console.log(newNotification);
+
+    this.notificationsService.newNotification(newNotification);
 
   }
 
