@@ -18,13 +18,13 @@ export class MyProjectsComponent implements OnInit {
   userDetails: any;
 
   constructor(
-    
+
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router, 
-    public dialog: MatDialog 
-  
-  ) {}
+    private router: Router,
+    public dialog: MatDialog
+
+  ) { }
 
   ngOnInit() {
 
@@ -33,12 +33,12 @@ export class MyProjectsComponent implements OnInit {
     if (this.userDetails) {
 
       this.usersService.getUser(this.userDetails.userId).subscribe(
-        
-        (user: any) => { 
-          
-          this.userDetails = user; 
+
+        (user: any) => {
+
+          this.userDetails = user;
           this.loadMyProjects(this.userDetails.userId);
-          
+
         })
 
     }
@@ -50,16 +50,16 @@ export class MyProjectsComponent implements OnInit {
     this.usersService.getProjectsByUserId(userId).subscribe(projects => {
 
       this.projects = projects;
-      
+
     });
 
   }
 
-  openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
+  openDetailForm(row: any) { this.router.navigate(['/project', row.projectId]); }
 
-  editProjectDetail(project: any) { this.router.navigate(['/project/edit', project]); }
+  editProject(project: any) { this.router.navigate(['/project/edit', project]); }
 
-  openDeleteDialog (projectId: number): void { this.dialog.open(ProjectDeleteComponent, { data: { projectId: projectId } }); }
+  openDeleteDialog(projectId: number): void { this.dialog.open(ProjectDeleteComponent, { data: { projectId: projectId } }); }
 
   displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount', 'actions'];
 

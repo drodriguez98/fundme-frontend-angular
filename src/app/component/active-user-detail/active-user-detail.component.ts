@@ -46,7 +46,7 @@ export class ActiveUserDetailComponent implements OnInit {
 
   // openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
 
-  editUserDetail(user: any) { this.router.navigate(['/profile/edit', user]); }
+  editUser(user: any) { this.router.navigate(['/profile/edit', user]); }
 
   openDeleteDialog(userId: number): void { this.dialog.open(ActiveUserDeleteComponent, { data: { userId: userId } }); }
 

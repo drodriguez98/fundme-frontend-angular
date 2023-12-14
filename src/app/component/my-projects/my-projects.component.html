@@ -43,7 +43,7 @@
 
             <th *matHeaderCellDef></th>
             <td *matCellDef="let project">
-              <!-- <button mat-icon-button color="primary" (click)="editProjectDetail(project.projectId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button> -->
+              <button mat-icon-button color="primary" (click)="editProject(project.projectId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button>
               <button mat-icon-button color="warn" (click)="openDeleteDialog(project.projectId); $event.stopPropagation()"> <mat-icon>delete</mat-icon> </button>
             </td>
       

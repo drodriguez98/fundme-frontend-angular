@@ -13,6 +13,8 @@ import { MyDonationsComponent } from './component/my-donations/my-donations.comp
 import { DonationNewComponent } from './component/donation-new/donation-new.component';
 import { CommentNewComponent } from './component/comment-new/comment-new.component';
 import { RegisterComponent } from './component/register/register.component';
+import { ProjectEditComponent } from './component/project-edit/project-edit.component';
+import { ActiveUserEditComponent } from './component/active-user-edit/active-user-edit.component';
 
 
 const routes: Routes = [
@@ -23,52 +25,62 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardHomeComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects',
     component: ProjectHomeComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'project/new',
     component: ProjectNewComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'projects/myprojects',
     component: MyProjectsComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'project/:id',
     component: ProjectDetailComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'project/edit/:id',
+    component: ProjectEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'project/donate/:id',
     component: DonationNewComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'project/comment/:id',
     component: CommentNewComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'donations',
     component: DonationHomeComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'donations/mydonations',
     component: MyDonationsComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
     component: ActiveUserDetailComponent,
-    canActivate: [AuthGuard] 
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile/edit/:id',
+    component: ActiveUserEditComponent,
+    canActivate: [AuthGuard]
   },
   // Ruta predeterminada: redirige a dashboard si está autenticado, de lo contrario a login
   {
@@ -85,4 +97,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,0 +1,44 @@
+<div id="container">
+
+    <form (submit)="editProject()">
+
+        <h1>Edit project</h1>
+
+        <mat-form-field>
+
+            <mat-label>Area</mat-label>
+
+            <mat-select name="area" [(ngModel)]="project.areaId.areaId">
+
+                <mat-option *ngFor="let area of areas" [value]="area.areaId"> {{ area.name }} </mat-option>
+                
+            </mat-select>
+            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Title</mat-label>
+
+            <input matInput type="text" name="title" [(ngModel)]="project.title" class="text-center"/>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Description</mat-label>
+
+            <input matInput type="text" name="description" [(ngModel)]="project.description" class="text-center"/>
+
+        </mat-form-field>
+        
+        <div class="buttons">
+
+            <button mat-raised-button color="primary" type="submit"><mat-icon>save</mat-icon></button>
+            <button mat-raised-button color="warn" type="button" (click)="cancelEdit()"><mat-icon>cancel</mat-icon></button>
+
+        </div>
+
+    </form>
+
+</div>
