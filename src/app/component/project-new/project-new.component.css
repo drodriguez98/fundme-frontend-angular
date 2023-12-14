@@ -17,6 +17,10 @@ form {
     min-width: 400px;
 }
 
+form h1 {
+    margin: 40px auto;
+}
+
 mat-form-field {
     padding: 10px;
     width: 85%;

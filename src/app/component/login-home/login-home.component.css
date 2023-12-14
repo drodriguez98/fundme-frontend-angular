@@ -12,9 +12,9 @@ form {
     flex-direction: column;
     padding: 20px;
     width: 20%;
-    border: 1px solid grey;
+    border: 1px solid rgb(47, 55, 77);
     border-radius: 3px;
-    margin: auto 0;
+    margin: 200px 0;
     min-width: 400px;
 }
 
@@ -24,6 +24,13 @@ form h1 {
 
 mat-form-field {
     padding: 10px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 form button {

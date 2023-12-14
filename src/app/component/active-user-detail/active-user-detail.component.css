@@ -19,13 +19,23 @@ h1 {
     font-size: 26px;
 }
 
+mat-card-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px auto;
+}
+
 mat-card-content {
     display: flex;
     margin: 30px auto;
     width: 100%;
 }
 
-p { font-size: 17px; }
+p {
+    font-size: 17px;
+}
 
 mat-card-content .column {
     display: flex;
@@ -43,4 +53,3 @@ mat-card-content .column {
 button {
     font-size: 18px;
 }
-
