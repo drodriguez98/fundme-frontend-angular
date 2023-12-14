@@ -4,16 +4,16 @@ import { MatDialog } from '@angular/material';
 import { ProjectsService } from '../../service/projects.service';
 
 @Component({
-  selector: 'app-project-home',
-  templateUrl: './project-home.component.html',
-  styleUrls: ['./project-home.component.css']
+  selector: 'app-project',
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css']
 })
 
-export class ProjectHomeComponent implements OnInit {
+export class ProjectsComponent implements OnInit {
 
   projects: any = [];
 
-  constructor(private projectsService: ProjectsService, private router: Router, public dialog: MatDialog ) {}
+  constructor(private projectsService: ProjectsService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.projectsService.getProjects().subscribe(data => {
@@ -21,7 +21,7 @@ export class ProjectHomeComponent implements OnInit {
     });
   }
 
-  openDetailForm(row:any) { this.router.navigate(['/project', row.projectId]); }
+  openDetailForm(row: any) { this.router.navigate(['/project', row.projectId]); }
 
   displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount'];
 

@@ -4,17 +4,17 @@ import { ProjectsService } from '../../service/projects.service';
 import { DonationsService } from '../../service/donations.service';
 
 @Component({
-  selector: 'app-dashboard-home',
-  templateUrl: './dashboard-home.component.html',
-  styleUrls: ['./dashboard-home.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 
-export class DashboardHomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   projects: any = [];
   donations: any = [];
 
-  constructor(private router: Router, private projectsService: ProjectsService, private donationsService: DonationsService) {}
+  constructor(private router: Router, private projectsService: ProjectsService, private donationsService: DonationsService) { }
 
   ngOnInit() {
 
@@ -28,11 +28,11 @@ export class DashboardHomeComponent implements OnInit {
 
   }
 
-  openDetailProjectsForm(row:any) { this.router.navigate(['/project', row.projectId]); }
+  openDetailProjectsForm(row: any) { this.router.navigate(['/project', row.projectId]); }
 
   // displayedColumns: string[] = ['projectId', 'dateAdded', 'title', 'username', 'totalAmount'];
 
   displayedProjectsColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount'];
-  displayedDonationsColumns: string[] = ['dateAdded', 'title', 'username', 'amount' ];
+  displayedDonationsColumns: string[] = ['dateAdded', 'title', 'username', 'amount'];
 
 }

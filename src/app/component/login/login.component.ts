@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { UsersService } from '../../service/users.service';
 
 @Component({
-  selector: 'app-login-home',
-  templateUrl: './login-home.component.html',
-  styleUrls: ['./login-home.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginHomeComponent {
+export class LoginComponent {
 
-  constructor(private usersService: UsersService, private router: Router) {}
+  constructor(private usersService: UsersService, private router: Router) { }
 
   login(form: NgForm): void {
     if (form.valid) {

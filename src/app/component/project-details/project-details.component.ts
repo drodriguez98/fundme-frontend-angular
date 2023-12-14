@@ -5,9 +5,9 @@ import { MatDialog } from '@angular/material';
 
 @Component({
 
-  selector: 'app-project-detail',
-  templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css']
+  selector: 'app-project-details',
+  templateUrl: './project-details.component.html',
+  styleUrls: ['./project-details.component.css']
 
 })
 
@@ -19,11 +19,11 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(
 
-    private projectsService: ProjectsService, 
-    private route: ActivatedRoute, 
+    private projectsService: ProjectsService,
+    private route: ActivatedRoute,
     public dialog: MatDialog
-  
-  ) {}
+
+  ) { }
 
   ngOnInit() {
 
@@ -56,9 +56,9 @@ export class ProjectDetailComponent implements OnInit {
       this.comments = comments;
 
     });
-    
+
   }
 
-  displayedColumns: string[] = ['dateAdded', 'username', 'amount' ];
+  displayedColumns: string[] = ['dateAdded', 'username', 'amount'];
 
 }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectHomeComponent } from './component/project-home/project-home.component';
-import { DonationHomeComponent } from './component/donation-home/donation-home.component';
-import { DashboardHomeComponent } from './component/dashboard-home/dashboard-home.component';
-import { LoginHomeComponent } from './component/login-home/login-home.component';
+import { ProjectsComponent } from './component/projects/project.component';
+import { DonationsComponent } from './component/donations/donationcomponent';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth/auth.guard'
-import { ProjectDetailComponent } from './component/project-detail/project-detail.component';
-import { ActiveUserDetailComponent } from './component/active-user-detail/active-user-detail.component';
+import { ProjectDetailComponent } from './component/project-details/project-details.component';
+import { UserDetailsComponent } from './component/user-details/user-details.component';
 import { ProjectNewComponent } from './component/project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
@@ -14,22 +14,22 @@ import { DonationNewComponent } from './component/donation-new/donation-new.comp
 import { CommentNewComponent } from './component/comment-new/comment-new.component';
 import { RegisterComponent } from './component/register/register.component';
 import { ProjectEditComponent } from './component/project-edit/project-edit.component';
-import { ActiveUserEditComponent } from './component/active-user-edit/active-user-edit.component';
+import { EditUserDetailsComponent } from './component/user-edit/user-edit.component';
 
 
 const routes: Routes = [
   // Rutas públicas
-  { path: 'login', component: LoginHomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   // Rutas protegidas por AuthGuard
   {
     path: 'dashboard',
-    component: DashboardHomeComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'projects',
-    component: ProjectHomeComponent,
+    component: ProjectsComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -64,7 +64,7 @@ const routes: Routes = [
   },
   {
     path: 'donations',
-    component: DonationHomeComponent,
+    component: DonationsComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -74,12 +74,12 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ActiveUserDetailComponent,
+    component: UserDetailsComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'profile/edit/:id',
-    component: ActiveUserEditComponent,
+    component: EditUserDetailsComponent,
     canActivate: [AuthGuard]
   },
   // Ruta predeterminada: redirige a dashboard si está autenticado, de lo contrario a login

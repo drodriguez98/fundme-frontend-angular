@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UsersService } from 'src/app/service/users.service';
-import { ActiveUserDeleteComponent } from '../active-user-delete/active-user-delete.component';
+import { UserDeleteComponent } from '../user-delete/user-delete.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
 @Component({
 
-  selector: 'app-active-user-detail',
-  templateUrl: './active-user-detail.component.html',
-  styleUrls: ['./active-user-detail.component.css']
+  selector: 'app-user-details',
+  templateUrl: './user-details.component.html',
+  styleUrls: ['./user-details.component.css']
 
 })
 
-export class ActiveUserDetailComponent implements OnInit {
+export class UserDetailsComponent implements OnInit {
 
   userDetails: any;
 
@@ -48,6 +48,6 @@ export class ActiveUserDetailComponent implements OnInit {
 
   editUser(user: any) { this.router.navigate(['/profile/edit', user]); }
 
-  openDeleteDialog(userId: number): void { this.dialog.open(ActiveUserDeleteComponent, { data: { userId: userId } }); }
+  openDeleteDialog(userId: number): void { this.dialog.open(UserDeleteComponent, { data: { userId: userId } }); }
 
 }

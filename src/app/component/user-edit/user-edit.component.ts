@@ -5,12 +5,12 @@ import { CountriesService } from 'src/app/service/countries.service';
 import { UsersService } from 'src/app/service/users.service';
 
 @Component({
-  selector: 'app-active-user-edit',
-  templateUrl: './active-user-edit.component.html',
-  styleUrls: ['./active-user-edit.component.css']
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
 })
 
-export class ActiveUserEditComponent implements OnInit {
+export class EditUserDetailsComponent implements OnInit {
 
   user: any;
   countries: any;
