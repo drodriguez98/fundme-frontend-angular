@@ -39,7 +39,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'projects/myprojects',
+    path: 'myprojects',
     component: MyProjectsComponent,
     canActivate: [AuthGuard]
   },
@@ -69,7 +69,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'donations/mydonations',
+    path: 'mydonations',
     component: MyDonationsComponent,
     canActivate: [AuthGuard]
   },
