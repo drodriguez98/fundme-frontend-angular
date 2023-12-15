@@ -25,6 +25,6 @@ export class ProjectsComponent implements OnInit {
 
   openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
 
-  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount'];
+  displayedColumns: string[] = ['dateAdded', 'username', 'title', 'totalAmount'];
 
 }

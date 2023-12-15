@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../../service/projects.service';
 import { DonationsService } from '../../service/donations.service';
 
@@ -14,7 +14,14 @@ export class DashboardComponent implements OnInit {
   projects: any = [];
   donations: any = [];
 
-  constructor(private router: Router, private projectsService: ProjectsService, private donationsService: DonationsService) { }
+  constructor(
+
+    private router: Router,
+    private route: ActivatedRoute,
+    private projectsService: ProjectsService,
+    private donationsService: DonationsService
+
+  ) { }
 
   ngOnInit() {
 
@@ -29,11 +36,11 @@ export class DashboardComponent implements OnInit {
   }
 
   openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
-  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
+  openUserDetails(row: any) { this.router.navigate(['/users', row.userId]); }
 
   // displayedColumns: string[] = ['projectId', 'dateAdded', 'title', 'username', 'totalAmount'];
 
-  displayedProjectsColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount'];
-  displayedDonationsColumns: string[] = ['dateAdded', 'title', 'username', 'amount'];
+  displayedProjectsColumns: string[] = ['dateAdded', 'username', 'title', 'totalAmount'];
+  displayedDonationsColumns: string[] = ['dateAdded', 'username', 'title', 'amount'];
 
 }
