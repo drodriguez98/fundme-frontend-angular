@@ -38,7 +38,6 @@ mat-card-content {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
     font-size: 16px;
 }
 
@@ -46,16 +45,15 @@ mat-card-content {
 .project-details-card .content {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 40px auto;
     font-size: 16px;
 }
 
 .project-details-card mat-card-content .amount {
-    margin: 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .project-details-card mat-card-content p {
@@ -69,6 +67,7 @@ mat-card-content {
 #buttonsContainer {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 50px;
 }
 
 /* Donations table */

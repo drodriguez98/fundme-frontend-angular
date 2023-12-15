@@ -1,0 +1,70 @@
+<div id="container" *ngIf="userDetails">
+
+    <mat-card class="user-details-card">
+
+        <h1>My profile</h1>
+    
+        <mat-card-content>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Name</strong></p>
+                    <p>{{ userDetails.name }}</p>     
+                </div>
+
+                <div class="detail">
+                    <p><strong>Username</strong></p> 
+                    <p>{{ userDetails.username }}</p> 
+                </div>
+
+                <div class="detail">
+                    <p><strong>Email</strong></p> 
+                    <p>{{ userDetails.email }}</p>
+                </div>
+
+            </div>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Country</strong></p> 
+                    <p>{{ userDetails.countryId.name }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Postal Code</strong></p> 
+                    <p>{{ userDetails.postalCode }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Phone</strong></p> 
+                    <p>{{ userDetails.phone }}</p>
+                </div>
+                
+            </div>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Active</strong></p> 
+                    <mat-icon [style.color]="userDetails.active ? 'green' : 'red'"> {{userDetails.active ? 'check' : 'close'}} </mat-icon>
+                </div>
+
+            </div>
+
+        </mat-card-content>
+
+        
+
+        <div class="buttons">
+
+            <button mat-icon-button color="primary" (click)="editUser(userDetails.userId); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </button>
+            <button mat-icon-button color="warn" (click)="openDeleteDialog(userDetails.userId); $event.stopPropagation()"> <mat-icon>delete</mat-icon> </button>
+            <!-- <button mat-icon-button color="warn" (click)="openDeleteDialog(userDetails.userId); $event.stopPropagation()">Delete account</button> -->
+            
+        </div>
+
+    </mat-card>
+
+</div>
