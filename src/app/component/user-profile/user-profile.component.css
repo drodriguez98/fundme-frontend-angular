@@ -41,10 +41,13 @@ mat-card-content .column {
 
 .buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin: 10px;
+    margin: 20px auto;
+
 }
 
 button {
     font-size: 18px;
+    width: 100%;
 }
