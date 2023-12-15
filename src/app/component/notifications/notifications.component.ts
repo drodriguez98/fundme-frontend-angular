@@ -33,7 +33,7 @@ export class NotificationsComponent implements OnInit {
 
     if (this.userDetails) {
 
-      this.usersService.getUser(this.userDetails.userId).subscribe(
+      this.usersService.getAuthenticatedUser(this.userDetails.userId).subscribe(
 
         (user: any) => {
 
@@ -77,9 +77,10 @@ export class NotificationsComponent implements OnInit {
     this.router.onSameUrlNavigation = "reload";
     this.router.navigate(['/notifications']);
 
-    //this.navigateTo...();
-
   };
+
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
 
   displayedUnreadColumns: string[] = ['createdDate', 'message', 'markAsRead'];
   displayedReadColumns: string[] = ['createdDate', 'message'];
