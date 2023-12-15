@@ -1,6 +1,5 @@
 #container {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,7 +18,7 @@ form {
     width: 20%;
     border: 1px solid rgb(47, 55, 77);
     border-radius: 3px;
-    margin: auto 0;
+    margin: 65px 0;
     min-width: 400px;
 }
 
@@ -41,6 +40,10 @@ mat-form-field {
 form button {
     width: 10%;
     margin: 30px auto;
+}
+
+form button.submit {
+    background-color: #1a1919;
 }
 
 form button:hover {

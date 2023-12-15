@@ -36,6 +36,10 @@ form button {
     margin: 30px auto;
 }
 
+form button.submit {
+    background-color: #1a1919;
+}
+
 form button:hover {
     background-color: rgb(47, 55, 77);
 }
