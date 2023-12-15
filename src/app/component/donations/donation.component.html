@@ -6,7 +6,7 @@
 
     <mat-card-content>
 
-        <table mat-table [dataSource]="donations" class="mat-elevation-z8">
+        <table mat-table [dataSource]="donations" *ngIf="donations.length > 0; else noDonations" class="mat-elevation-z8">
 
             <ng-container matColumnDef="dateAdded">
     
@@ -40,6 +40,16 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
         </table>
+
+        <ng-template #noDonations>
+
+          <div class="no-donations-message">
+            
+            <p>No one has donated yet.</p>
+  
+          </div>
+  
+        </ng-template>
 
     </mat-card-content>
 

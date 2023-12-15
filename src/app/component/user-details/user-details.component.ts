@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from 'src/app/service/users.service';
 
 @Component({
@@ -12,28 +12,54 @@ export class UserDetailsComponent implements OnInit {
 
   user: any;
 
+  projects: any = [];
+  donations: any = [];
+
   constructor(
 
     private usersService: UsersService,
+    private router: Router,
     private route: ActivatedRoute
 
   ) { }
 
   ngOnInit() {
-    const userId = +this.route.snapshot.params['id'];
-    console.log('User ID from URL:', userId); // Agrega un log descriptivo para el ID del usuario desde la URL
 
-    this.usersService.getUser(userId).subscribe(
-      (data) => {
-        console.log('DATA:', data); // Agrega un log descriptivo para la respuesta de los detalles del usuario
-        this.user = data;
-        console.log('USER:', this.user)
-      },
-      (error) => {
-        console.error('Error fetching user details:', error); // Agrega un log descriptivo para cualquier error al obtener los detalles del usuario
-      }
-    );
+    const userId = +this.route.snapshot.params['id'];
+
+    this.usersService.getUser(userId).subscribe((data) => {
+
+      this.user = data;
+      this.loadProjectsByUser(this.user.userId);
+      this.loadDonationsByUser(this.user.userId);
+
+    });
+
   }
 
+  loadProjectsByUser(userId: number) {
+
+    this.usersService.getProjectsByUserId(userId).subscribe(projects => {
+
+      this.projects = projects;
+
+    })
+
+  }
+
+  loadDonationsByUser(userId: number) {
+
+    this.usersService.getDonationsByUserId(userId).subscribe(donations => {
+
+      this.donations = donations;
+
+    })
+
+  }
+
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
+
+  displayedProjectsColumns: string[] = ['dateAdded', 'title', 'totalAmount'];
+  displayedDonationsColumns: string[] = ['dateAdded', 'title', 'amount'];
 
 }

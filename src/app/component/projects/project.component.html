@@ -8,7 +8,7 @@
 
     <mat-card-content>
 
-        <table mat-table [dataSource]="projects" class="mat-elevation-z8">
+        <table mat-table [dataSource]="projects" *ngIf="projects.length > 0; else noProjects" class="mat-elevation-z8">
 
             <ng-container matColumnDef="dateAdded">
 
@@ -42,6 +42,16 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
         </table>
+
+        <ng-template #noProjects>
+
+            <div class="no-projects-message">
+              
+              <p>No one has published projects yet.</p>
+    
+            </div>
+    
+        </ng-template>
 
     </mat-card-content>
 

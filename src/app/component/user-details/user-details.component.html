@@ -1,5 +1,7 @@
 <div id="container" *ngIf="user">
 
+    <!-- User details -->
+
     <mat-card class="user-details-card">
 
         <h1> {{ user.name }}</h1>
@@ -9,18 +11,24 @@
             <div class="column">
 
                 <div class="detail">
+
                     <p><strong>Name</strong></p>
                     <p>{{ user.name }}</p>     
+
                 </div>
 
                 <div class="detail">
+
                     <p><strong>Username</strong></p> 
                     <p>{{ user.username }}</p> 
+
                 </div>
 
                 <div class="detail">
+
                     <p><strong>Email</strong></p> 
                     <p>{{ user.email }}</p>
+
                 </div>
 
             </div>
@@ -28,18 +36,24 @@
             <div class="column">
 
                 <div class="detail">
+
                     <p><strong>Country</strong></p> 
                     <p>{{ user.countryId.name }}</p>
+
                 </div>
 
                 <div class="detail">
+
                     <p><strong>Postal Code</strong></p> 
                     <p>{{ user.postalCode }}</p>
+
                 </div>
 
                 <div class="detail">
+
                     <p><strong>Phone</strong></p> 
                     <p>{{ user.phone }}</p>
+
                 </div>
                 
             </div>
@@ -48,5 +62,105 @@
         </mat-card-content>
 
     </mat-card>
+
+    <!-- Projects -->
+
+    <mat-card class="projects-card">
+
+        <h1>Projects</h1>
+    
+        <mat-card-content>
+    
+          <table mat-table [dataSource]="projects" *ngIf="projects.length > 0; else noProjects"class="mat-elevation-z8">
+    
+              <ng-container matColumnDef="dateAdded">
+    
+                <th *matHeaderCellDef> Date </th>
+                <td *matCellDef="let project"> {{project.dateAdded | date:'yyyy/MM/dd' }} </td>
+    
+              </ng-container>      
+    
+              <ng-container matColumnDef="title">
+    
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell *matCellDef="let project" (click)="openProjectDetails(project)" class="details-link">{{ project.title }}</td>
+    
+            </ng-container>
+    
+              <ng-container matColumnDef="totalAmount">
+    
+                <th *matHeaderCellDef> Amount </th>
+                <td *matCellDef="let project"> {{project.totalAmount}} €</td>
+    
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedProjectsColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedProjectsColumns;" (click)="openProjectDetails(row)"></tr>
+    
+            </table>
+    
+            <ng-template #noProjects>
+    
+              <div class="no-projects-message">
+    
+                <p> {{ user.name }}  haven't made any projects yet.</p>
+    
+              </div>
+    
+            </ng-template>
+    
+          </mat-card-content>
+    
+        </mat-card>
+
+    <!-- Donations -->
+
+    <mat-card class="donations-card">
+
+        <h1>Donations</h1>
+
+        <mat-card-content>
+
+          <table mat-table [dataSource]="donations" *ngIf="donations.length > 0; else noDonations" class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="dateAdded">
+
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let donation">{{ donation.dateAdded | date:'yyyy/MM/dd' }}</td>
+            
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+
+              <th mat-header-cell *matHeaderCellDef>Project</th>
+              <td mat-cell *matCellDef="let donation" (click)="openProjectDetails(donation.projectId)" class="details-link">{{ donation.projectId.title }}</td>
+
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let donation">{{ donation.amount }} €</td>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedDonationsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedDonationsColumns;"></tr>
+
+          </table>
+
+          <ng-template #noDonations>
+
+            <div class="no-donations-message">
+
+              <p> {{ user.name }} haven't made any donations yet.</p>
+
+            </div>
+
+          </ng-template>
+
+        </mat-card-content>
+
+      </mat-card>
 
 </div>
