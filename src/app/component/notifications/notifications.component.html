@@ -1,1 +1,69 @@
-<p>notifications works!</p>
+<div id="container">
+
+    <!-- Top projects -->
+  
+    <mat-card class="projects-card">
+  
+      <mat-card-header> <mat-card-title>Unread Notifications</mat-card-title> </mat-card-header>
+  
+      <mat-card-content>
+  
+        <table mat-table [dataSource]="unreadNotifications" class="mat-elevation-z8">
+  
+            <ng-container matColumnDef="createdDate">
+  
+              <th *matHeaderCellDef></th>
+              <td *matCellDef="let unreadNotification"> {{ unreadNotification.createdDate | date:'yyyy/MM/dd' }} </td>
+  
+            </ng-container>    
+  
+            <ng-container matColumnDef="message">
+  
+              <th *matHeaderCellDef></th>
+              <td *matCellDef="let unreadNotification"> {{unreadNotification.message}} </td>
+  
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedUnreadColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedUnreadColumns;"></tr>
+
+          </table>
+  
+        </mat-card-content>
+  
+      </mat-card>
+  
+      <!-- Top donations -->
+  
+    <mat-card class="donations-card">
+  
+      <mat-card-header> <mat-card-title>Read Notifications</mat-card-title> </mat-card-header>
+  
+      <mat-card-content>
+  
+        <table mat-table [dataSource]="readNotifications" class="mat-elevation-z8">
+  
+            <ng-container matColumnDef="createdDate">
+  
+              <th *matHeaderCellDef></th>
+              <td *matCellDef="let readNotification"> {{readNotification.createdDate | date:'yyyy/MM/dd' }} </td>
+  
+            </ng-container>     
+  
+            <ng-container matColumnDef="message">
+  
+                <th *matHeaderCellDef></th>
+                <td *matCellDef="let readNotification"> {{readNotification.message}} </td>
+    
+              </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedReadColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedReadColumns;"></tr>
+  
+        </table>
+  
+      </mat-card-content>
+  
+    </mat-card>
+  
+  </div>

@@ -15,6 +15,7 @@ import { CommentNewComponent } from './component/comment-new/comment-new.compone
 import { RegisterComponent } from './component/register/register.component';
 import { ProjectEditComponent } from './component/project-edit/project-edit.component';
 import { EditUserDetailsComponent } from './component/user-edit/user-edit.component';
+import { NotificationsComponent } from './component/notifications/notifications.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,11 @@ const routes: Routes = [
   {
     path: 'donations/mydonations',
     component: MyDonationsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
     canActivate: [AuthGuard]
   },
   {
