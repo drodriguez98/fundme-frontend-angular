@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DonationsService } from '../../service/donations.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donation',
@@ -10,13 +11,25 @@ import { DonationsService } from '../../service/donations.service';
 export class DonationsComponent implements OnInit {
   donations: any = [];
 
-  constructor(private donationsService: DonationsService) { }
+  constructor(
+
+    private donationsService: DonationsService,
+    private router: Router
+
+  ) { }
 
   ngOnInit() {
+
     this.donationsService.getDonations().subscribe(data => {
+
       this.donations = data;
+
     });
   }
 
-  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'amount'];
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
+
+  displayedColumns: string[] = ['dateAdded', 'username', 'title', 'amount'];
+
 }
