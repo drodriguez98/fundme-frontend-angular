@@ -16,7 +16,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 
 export class ProjectNewComponent implements OnInit {
 
-  project : Project = new Project();
+  project: Project = new Project();
   area: Area = new Area();
 
   areas: any = [];
@@ -24,23 +24,23 @@ export class ProjectNewComponent implements OnInit {
 
   constructor(
 
-    private router: Router, 
-    private areasService: AreasService, 
-    private projectsService: ProjectsService, 
+    private router: Router,
+    private areasService: AreasService,
+    private projectsService: ProjectsService,
     private usersService: UsersService,
     private authService: AuthService
 
-  ) {}
+  ) { }
 
-  ngOnInit() { 
-    
-    this.areasService.getAreas().subscribe(data => { this.areas = data }); 
-    
+  ngOnInit() {
+
+    this.areasService.getAreas().subscribe(data => { this.areas = data });
+
     this.userDetails = this.authService.decodeAuthenticatedUserToken();
 
     if (this.userDetails) {
 
-      this.usersService.getUser(this.userDetails.userId).subscribe((user: any) => { this.userDetails = user; })
+      this.usersService.getAuthenticatedUser(this.userDetails.userId).subscribe((user: any) => { this.userDetails = user; })
 
     }
 
@@ -58,11 +58,11 @@ export class ProjectNewComponent implements OnInit {
       areaId: this.area,
       description: this.project.description,
       totalAmount: 0,
-      
+
     }
 
     // console.log(newProject);
-    
+
     this.projectsService.newProject(newProject);
 
     this.navigateToProjects();

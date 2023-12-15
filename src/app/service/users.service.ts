@@ -22,7 +22,16 @@ export class UsersService {
 
     const url = 'http://localhost:30030/users/get';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = JSON.stringify({ id: userId });
+    const body = JSON.stringify({ userId: userId });
+    return this.http.post(url, body, { headers });
+
+  }
+
+  getAuthenticatedUser(userId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/users/getAuthenticated';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({ userId: userId });
     return this.http.post(url, body, { headers });
 
   }

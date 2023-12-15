@@ -27,7 +27,7 @@ export class EditUserDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.usersService.getUser(this.route.snapshot.params['id']).subscribe(data => {
+    this.usersService.getAuthenticatedUser(this.route.snapshot.params['id']).subscribe(data => {
 
       this.user = data;
       this.formatDate();

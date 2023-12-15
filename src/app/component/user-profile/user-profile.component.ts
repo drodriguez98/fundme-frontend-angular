@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
 
     if (this.userDetails) {
 
-      this.userService.getUser(this.userDetails.userId).subscribe(
+      this.userService.getAuthenticatedUser(this.userDetails.userId).subscribe(
 
         (user: any) => {
 

@@ -47,7 +47,7 @@ export class CommentNewComponent implements OnInit {
 
     if (this.userDetails) {
 
-      this.usersService.getUser(this.userDetails.userId).subscribe((user: any) => { this.userDetails = user; })
+      this.usersService.getAuthenticatedUser(this.userDetails.userId).subscribe((user: any) => { this.userDetails = user; })
 
     }
 
