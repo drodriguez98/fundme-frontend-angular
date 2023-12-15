@@ -28,7 +28,7 @@ export class DonationsComponent implements OnInit {
   }
 
   openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
-  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
+  openUserDetails(row: any) { this.router.navigate(['/users', row.userId]); }
 
   displayedColumns: string[] = ['dateAdded', 'username', 'title', 'amount'];
 
