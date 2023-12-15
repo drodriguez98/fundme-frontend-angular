@@ -20,12 +20,13 @@ export class MyDonationsComponent implements OnInit {
   userDetails: any;
 
   constructor(
-    
+
     private usersService: UsersService,
     private authService: AuthService,
-    public dialog: MatDialog 
-  
-  ) {}
+    public dialog: MatDialog,
+    private router: Router
+
+  ) { }
 
   ngOnInit() {
 
@@ -33,13 +34,13 @@ export class MyDonationsComponent implements OnInit {
 
     if (this.userDetails) {
 
-      this.usersService.getUser(this.userDetails.userId).subscribe(
-        
-        (user: any) => { 
-          
-          this.userDetails = user; 
+      this.usersService.getAuthenticatedUser(this.userDetails.userId).subscribe(
+
+        (user: any) => {
+
+          this.userDetails = user;
           this.loadMyDonations(this.userDetails.userId);
-          
+
         })
 
     }
@@ -53,9 +54,12 @@ export class MyDonationsComponent implements OnInit {
       this.donations = donations;
 
     });
-    
+
   }
 
-  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'amount' ];
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
+
+  displayedColumns: string[] = ['dateAdded', 'title', 'amount'];
 
 }
