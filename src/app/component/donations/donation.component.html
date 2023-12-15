@@ -15,19 +15,19 @@
     
             </ng-container>     
 
-            <ng-container matColumnDef="title">
-
-              <th *matHeaderCellDef> Title </th>
-              <td *matCellDef="let donation"> {{donation.projectId.title}} </td>
-            
-            </ng-container>
-    
             <ng-container matColumnDef="username">
-    
-                <th *matHeaderCellDef> User </th>
-                <td *matCellDef="let donation"> {{donation.userId.username}} </td>
-    
-            </ng-container>
+
+              <th *matHeaderCellDef> User </th>
+              <td *matCellDef="let donation" (click)="openUserDetails(donation.userId)" class="details-link"> {{donation.userId.username}} </td>
+
+          </ng-container>
+
+          <ng-container matColumnDef="title">
+
+            <th *matHeaderCellDef> Project </th>
+            <td *matCellDef="let donation" (click)="openProjectDetails(donation.projectId)" class="details-link"> {{donation.projectId.title}} </td>
+
+          </ng-container>
     
             <ng-container matColumnDef="amount">
     

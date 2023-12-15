@@ -3,37 +3,48 @@
   <div id="newProjectButtonContainer"> <a mat-stroked-button routerLink="/project/new">New project</a> </div>
 
   <mat-card class="projects-card">
+
     <h1>Projects</h1>
+
     <mat-card-content>
+
         <table mat-table [dataSource]="projects" class="mat-elevation-z8">
-            <!-- Columnas de la tabla -->
+
             <ng-container matColumnDef="dateAdded">
+
                 <th mat-header-cell *matHeaderCellDef>Date</th>
                 <td mat-cell *matCellDef="let project">{{ project.dateAdded | date:'yyyy/MM/dd' }}</td>
+
             </ng-container>
+    
+            <ng-container matColumnDef="username">
+    
+                <th mat-header-cell *matHeaderCellDef>User</th>
+                <td mat-cell *matCellDef="let project" (click)="openUserDetails(project.userId)" class="details-link">{{ project.userId.username }}</td>
+    
+            </ng-container>
+
             <ng-container matColumnDef="title">
 
                 <th mat-header-cell *matHeaderCellDef>Title</th>
                 <td mat-cell *matCellDef="let project" (click)="openProjectDetails(project)" class="details-link">{{ project.title }}</td>
     
             </ng-container>
-    
-            <ng-container matColumnDef="username">
-    
-                <th mat-header-cell *matHeaderCellDef>User</th>
-                  <td mat-cell *matCellDef="let project" (click)="openUserDetails(project.userId)" class="details-link">{{ project.userId.username }}</td>
-    
-            </ng-container>
+
             <ng-container matColumnDef="totalAmount">
+
                 <th mat-header-cell *matHeaderCellDef>Amount</th>
                 <td mat-cell *matCellDef="let project">{{ project.totalAmount }} €</td>
+
             </ng-container>
-            <!-- Definición de filas -->
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </mat-card-content>
-</mat-card>
 
+        </table>
+
+    </mat-card-content>
+
+    </mat-card>
 
 </div>

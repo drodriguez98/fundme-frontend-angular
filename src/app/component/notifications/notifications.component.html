@@ -8,7 +8,7 @@
   
       <mat-card-content>
   
-        <table mat-table [dataSource]="unreadNotifications" class="mat-elevation-z8">
+        <table mat-table [dataSource]="unreadNotifications" *ngIf="unreadNotifications.length > 0; else noUnreadNotifications" class="mat-elevation-z8">
   
             <ng-container matColumnDef="createdDate">
   
@@ -35,6 +35,16 @@
             <tr mat-row *matRowDef="let row; columns: displayedUnreadColumns;"></tr>
 
           </table>
+
+          <ng-template #noUnreadNotifications>
+
+            <div class="no-notifications-message">
+
+              <p>You haven't made any unread notifications yet.</p>
+
+            </div>
+
+          </ng-template>
   
         </mat-card-content>
   
@@ -48,7 +58,7 @@
   
       <mat-card-content>
   
-        <table mat-table [dataSource]="readNotifications" class="mat-elevation-z8">
+        <table mat-table [dataSource]="readNotifications" *ngIf="readNotifications.length > 0; else noReadNotifications"class="mat-elevation-z8">
   
             <ng-container matColumnDef="createdDate">
   
@@ -68,6 +78,16 @@
             <tr mat-row *matRowDef="let row; columns: displayedReadColumns;"></tr>
   
         </table>
+
+        <ng-template #noReadNotifications>
+
+          <div class="no-notifications-message">
+
+            <p>You haven't made any unread notifications yet.</p>
+
+          </div>
+
+        </ng-template>
   
       </mat-card-content>
   
