@@ -45,6 +45,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'users/:id',
+    component: UserDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'project/:id',
     component: ProjectDetailComponent,
     canActivate: [AuthGuard]
@@ -87,11 +92,6 @@ const routes: Routes = [
   {
     path: 'profile/edit/:id',
     component: EditUserDetailsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'user/:id',
-    component: UserDetailsComponent,
     canActivate: [AuthGuard]
   },
   // Ruta predeterminada: redirige a dashboard si está autenticado, de lo contrario a login

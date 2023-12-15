@@ -1,1 +1,52 @@
-<p>user-details works!</p>
+<div id="container" *ngIf="user">
+
+    <mat-card class="user-details-card">
+
+        <h1> {{ user.name }}</h1>
+    
+        <mat-card-content>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Name</strong></p>
+                    <p>{{ user.name }}</p>     
+                </div>
+
+                <div class="detail">
+                    <p><strong>Username</strong></p> 
+                    <p>{{ user.username }}</p> 
+                </div>
+
+                <div class="detail">
+                    <p><strong>Email</strong></p> 
+                    <p>{{ user.email }}</p>
+                </div>
+
+            </div>
+
+            <div class="column">
+
+                <div class="detail">
+                    <p><strong>Country</strong></p> 
+                    <p>{{ user.countryId.name }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Postal Code</strong></p> 
+                    <p>{{ user.postalCode }}</p>
+                </div>
+
+                <div class="detail">
+                    <p><strong>Phone</strong></p> 
+                    <p>{{ user.phone }}</p>
+                </div>
+                
+            </div>
+
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
