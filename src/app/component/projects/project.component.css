@@ -14,7 +14,7 @@
 
 #newProjectButtonContainer a {
     border: 1px solid black;
-    transform: scale(1); 
+    transform: scale(1);
     transition: transform 0.1s ease-in-out;
     font-family: 'Abel', sans-serif;
     font-family: 'Space Grotesk', sans-serif;
@@ -24,7 +24,9 @@
     color: rgb(247, 247, 197);
 }
 
-#newProjectButtonContainer a:hover { transform: scale(1.02); }
+#newProjectButtonContainer a:hover {
+    transform: scale(1.02);
+}
 
 .projects-card {
     width: 45%;
@@ -38,13 +40,16 @@
 
 mat-card-header {
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px auto;
 }
 
 mat-card-title {
     margin: 25px auto;
 }
 
-mat-card-header, 
 mat-card-content {
     display: flex;
     flex-direction: column;
@@ -53,8 +58,8 @@ mat-card-content {
     margin-bottom: 30px;
 }
 
-table { 
-    width: 90%; 
+table {
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -64,7 +69,7 @@ table th {
 }
 
 table td {
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
 
 }
