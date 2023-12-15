@@ -56,6 +56,15 @@ table td {
     font-size: 15px;
 }
 
+.details-link {
+    color: #0074d9;
+    text-decoration: none;
+}
+
+.details-link:visited {
+    color: #7a7a7a;
+}
+
 table tr:nth-child(even) {
     background-color: #f5f5f5;
 }

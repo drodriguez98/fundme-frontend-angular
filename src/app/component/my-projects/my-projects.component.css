@@ -22,7 +22,7 @@
     font-size: 18px;
     padding: 10px;
     background-color: #333;
-    color: rgb(247, 247, 197);
+    color: rgb(224, 230, 245);
 }
 
 #newProjectButtonContainer a:hover {
@@ -75,6 +75,15 @@ table td {
     padding: 10px;
     text-align: center;
     font-size: 15px;
+}
+
+.details-link {
+    color: #0074d9;
+    text-decoration: none;
+}
+
+.details-link:visited {
+    color: #7a7a7a;
 }
 
 table tr:nth-child(even) {

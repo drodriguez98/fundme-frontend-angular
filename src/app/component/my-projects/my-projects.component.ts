@@ -55,12 +55,12 @@ export class MyProjectsComponent implements OnInit {
 
   }
 
-  openDetailForm(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
 
   editProject(project: any) { this.router.navigate(['/project/edit', project]); }
 
   openDeleteDialog(projectId: number): void { this.dialog.open(ProjectDeleteComponent, { data: { projectId: projectId } }); }
 
-  displayedColumns: string[] = ['dateAdded', 'title', 'username', 'totalAmount', 'actions'];
+  displayedColumns: string[] = ['dateAdded', 'title', 'totalAmount', 'actions'];
 
 }

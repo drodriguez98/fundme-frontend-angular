@@ -28,7 +28,8 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  openDetailProjectsForm(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openProjectDetails(row: any) { this.router.navigate(['/project', row.projectId]); }
+  openUserDetails(row: any) { this.router.navigate(['/user', row.userId]); }
 
   // displayedColumns: string[] = ['projectId', 'dateAdded', 'title', 'username', 'totalAmount'];
 
