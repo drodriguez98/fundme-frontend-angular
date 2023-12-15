@@ -71,7 +71,7 @@ export class CommentNewComponent implements OnInit {
 
     this.newNotification();
 
-    this.navigateToDashboard();
+    this.navigateToProjectDetails();
 
   }
 
@@ -96,8 +96,8 @@ export class CommentNewComponent implements OnInit {
 
   }
 
-  cancelInsert() { this.navigateToDashboard(); }
+  cancelInsert() { this.navigateToProjectDetails(); }
 
-  navigateToDashboard() { this.router.navigate(['/dashboard']); }
+  navigateToProjectDetails() { this.router.navigate(['/project', this.route.snapshot.params['id']]) }
 
 }

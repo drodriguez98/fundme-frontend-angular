@@ -48,6 +48,8 @@ export class ProjectEditComponent implements OnInit {
   editProject(): void {
 
     this.projectsService.editProject(this.project);
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; }
+    this.router.onSameUrlNavigation = "reload";
     this.navigateToDetail();
 
   }

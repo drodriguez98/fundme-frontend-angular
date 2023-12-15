@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { NotificationsService } from 'src/app/service/notifications.service';
 import { UsersService } from 'src/app/service/users.service';
 
 @Component({
@@ -19,6 +21,8 @@ export class NotificationsComponent implements OnInit {
 
     private usersService: UsersService,
     private authService: AuthService,
+    private notificationsService: NotificationsService,
+    private router: Router,
     public dialog: MatDialog
 
   ) { }
@@ -63,7 +67,21 @@ export class NotificationsComponent implements OnInit {
 
   }
 
-  displayedUnreadColumns: string[] = ['createdDate', 'message'];
+  markNotificationAsRead(unreadNotification: any) {
+
+    unreadNotification.read = true;
+
+    this.notificationsService.editNotification(unreadNotification);
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; }
+    this.router.onSameUrlNavigation = "reload";
+    this.router.navigate(['/notifications']);
+
+    //this.navigateTo...();
+
+  };
+
+  displayedUnreadColumns: string[] = ['createdDate', 'message', 'markAsRead'];
   displayedReadColumns: string[] = ['createdDate', 'message'];
 
 }

@@ -23,6 +23,13 @@
               <td *matCellDef="let unreadNotification"> {{unreadNotification.message}} </td>
   
             </ng-container>
+
+            <ng-container matColumnDef="markAsRead">
+              <th *matHeaderCellDef></th>
+              <td *matCellDef="let unreadNotification">
+                  <button mat-button color="primary" (click)="markNotificationAsRead(unreadNotification)">Mark as Read</button>
+              </td>
+          </ng-container>
   
             <tr mat-header-row *matHeaderRowDef="displayedUnreadColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedUnreadColumns;"></tr>

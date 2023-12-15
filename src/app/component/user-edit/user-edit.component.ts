@@ -48,6 +48,8 @@ export class EditUserDetailsComponent implements OnInit {
   editUser(): void {
 
     this.usersService.editUser(this.user);
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; }
+    this.router.onSameUrlNavigation = "reload";
     this.navigateToDetail();
 
   }

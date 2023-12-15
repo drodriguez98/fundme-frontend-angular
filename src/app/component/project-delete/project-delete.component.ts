@@ -17,21 +17,21 @@ export class ProjectDeleteComponent implements OnInit {
 
     private projectsService: ProjectsService,
     public dialogRef: MatDialogRef<ProjectDeleteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { projectId: number},
+    @Inject(MAT_DIALOG_DATA) public data: { projectId: number },
     private router: Router
 
   ) { this.projectId = data.projectId; }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   confirm(): void {
 
     this.projectsService.deleteProject(this.projectId);
     this.dialogRef.close();
-    this.router.routeReuseStrategy.shouldReuseRoute = function() { return false; }
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; }
     this.router.onSameUrlNavigation = "reload";
-    this.router.navigate(['/projects']);
-    
+    this.router.navigate(['/myprojects']);
+
   }
 
 }

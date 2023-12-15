@@ -74,7 +74,7 @@ export class DonationNewComponent implements OnInit {
 
     this.newNotification();
 
-    this.navigateToMyDonations();
+    this.navigateToProjectDetails();
 
   }
 
@@ -99,8 +99,8 @@ export class DonationNewComponent implements OnInit {
 
   }
 
-  cancelInsert() { this.navigateToMyDonations(); }
+  cancelInsert() { this.navigateToProjectDetails(); }
 
-  navigateToMyDonations() { this.router.navigate(['/donations/mydonations']); }
+  navigateToProjectDetails() { this.router.navigate(['/project', this.route.snapshot.params['id']]) }
 
 }
