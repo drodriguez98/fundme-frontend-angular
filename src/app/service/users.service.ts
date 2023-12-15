@@ -8,26 +8,26 @@ import { Observable } from 'rxjs';
 
 export class UsersService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any> {
 
     const url = 'http://localhost:30030/users/all';
     const headers = new HttpHeaders();
     return this.http.get<any>(url, { headers });
-    
+
   }
 
   getUser(userId: number): Observable<any> {
 
     const url = 'http://localhost:30030/users/get';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = JSON.stringify({id: userId});
-    return this.http.post(url, body, {headers});
+    const body = JSON.stringify({ id: userId });
+    return this.http.post(url, body, { headers });
 
   }
 
-  newUser(user : any): void {
+  newUser(user: any): void {
 
     const url = 'http://localhost:30030/users/add';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -36,16 +36,16 @@ export class UsersService {
 
   }
 
-  editUser(user : any): void {
+  editUser(user: any): void {
 
     const url = 'http://localhost:30030/users/update';
     const body = user;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    this.http.put(url, body,{headers}).subscribe();
+    this.http.put(url, body, { headers }).subscribe();
 
   }
 
-  deleteUser (userId: number): void {
+  deleteUser(userId: number): void {
 
     const url = 'http://localhost:30030/users/delete';
     const body = { userId: userId };
@@ -54,14 +54,14 @@ export class UsersService {
       headers: new HttpHeaders()
     };
     this.http.delete(url, options).subscribe();
-    
+
   }
 
   // Método para autenticar al usuario y obtener un token del backend
 
   authenticateUser(username: string, password: string): Observable<any> {
 
-    const url = 'http://localhost:30030/users/authentication'; 
+    const url = 'http://localhost:30030/users/authentication';
     const body = { username, password };
     return this.http.post(url, body);
 
@@ -71,8 +71,8 @@ export class UsersService {
 
     const url = 'http://localhost:30030/projects/getByUser';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = JSON.stringify({userId: userId});
-    return this.http.post(url, body, {headers});
+    const body = JSON.stringify({ userId: userId });
+    return this.http.post(url, body, { headers });
 
   }
 
@@ -80,9 +80,27 @@ export class UsersService {
 
     const url = 'http://localhost:30030/donations/getByUser';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = JSON.stringify({userId: userId});
-    return this.http.post(url, body, {headers});
+    const body = JSON.stringify({ userId: userId });
+    return this.http.post(url, body, { headers });
 
   }
-  
+
+  getUnreadNotificationsByUserId(userId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/notifications/getUnread';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({ userId: userId });
+    return this.http.post(url, body, { headers });
+
+  }
+
+  getReadNotificationsByUserId(userId: number): Observable<any> {
+
+    const url = 'http://localhost:30030/notifications/getRead';
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const body = JSON.stringify({ userId: userId });
+    return this.http.post(url, body, { headers });
+
+  }
+
 }
