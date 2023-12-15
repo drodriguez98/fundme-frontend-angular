@@ -32,7 +32,7 @@ export class MyProjectsComponent implements OnInit {
 
     if (this.userDetails) {
 
-      this.usersService.getUser(this.userDetails.userId).subscribe(
+      this.usersService.getAuthenticatedUser(this.userDetails.userId).subscribe(
 
         (user: any) => {
 
