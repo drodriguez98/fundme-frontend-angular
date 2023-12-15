@@ -12,7 +12,7 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ProjectDetailComponent } from './component/project-details/project-details.component';
-import { UserDetailsComponent } from './component/user-details/user-details.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { ProjectNewComponent } from './component/project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
@@ -25,6 +25,7 @@ import { ProjectEditComponent } from './component/project-edit/project-edit.comp
 import { DatePipe } from '@angular/common';
 import { EditUserDetailsComponent } from './component/user-edit/user-edit.component';
 import { NotificationsComponent } from './component/notifications/notifications.component';
+import { UserDetailsComponent } from './component/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { NotificationsComponent } from './component/notifications/notifications.
     DashboardComponent,
     LoginComponent,
     ProjectDetailComponent,
-    UserDetailsComponent,
+    UserProfileComponent,
     ProjectNewComponent,
     MyProjectsComponent,
     MyDonationsComponent,
@@ -46,6 +47,7 @@ import { NotificationsComponent } from './component/notifications/notifications.
     ProjectEditComponent,
     EditUserDetailsComponent,
     NotificationsComponent,
+    UserDetailsComponent,
   ],
   entryComponents: [ProjectDeleteComponent, UserDeleteComponent],
   imports: [

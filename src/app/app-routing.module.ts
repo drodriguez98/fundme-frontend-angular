@@ -6,7 +6,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth/auth.guard'
 import { ProjectDetailComponent } from './component/project-details/project-details.component';
-import { UserDetailsComponent } from './component/user-details/user-details.component';
+import { UserProfileComponent } from './component/user-profile/user-profile.component';
 import { ProjectNewComponent } from './component/project-new/project-new.component';
 import { MyProjectsComponent } from './component/my-projects/my-projects.component';
 import { MyDonationsComponent } from './component/my-donations/my-donations.component';
@@ -16,6 +16,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { ProjectEditComponent } from './component/project-edit/project-edit.component';
 import { EditUserDetailsComponent } from './component/user-edit/user-edit.component';
 import { NotificationsComponent } from './component/notifications/notifications.component';
+import { UserDetailsComponent } from './component/user-details/user-details.component';
 
 
 const routes: Routes = [
@@ -80,12 +81,17 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: UserDetailsComponent,
+    component: UserProfileComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'profile/edit/:id',
     component: EditUserDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'user/:id',
+    component: UserDetailsComponent,
     canActivate: [AuthGuard]
   },
   // Ruta predeterminada: redirige a dashboard si está autenticado, de lo contrario a login
