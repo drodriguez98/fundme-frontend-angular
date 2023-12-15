@@ -20,6 +20,7 @@ form {
     border-radius: 3px;
     margin: 65px 0;
     min-width: 400px;
+    background-color: white;
 }
 
 form h1 {
