@@ -6,6 +6,11 @@
     align-items: center;
 }
 
+h1,
+h2 {
+    margin: 40px auto;
+    font-size: 22px;
+}
 
 form {
     display: flex;
@@ -16,10 +21,6 @@ form {
     border-radius: 3px;
     margin: 200px 0;
     min-width: 400px;
-}
-
-form h1 {
-    margin: 40px auto;
 }
 
 mat-form-field {

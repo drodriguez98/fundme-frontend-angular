@@ -6,6 +6,11 @@
     align-items: center;
 }
 
+h1,
+h2 {
+    margin: 40px auto;
+    font-size: 22px;
+}
 
 form {
     display: flex;
