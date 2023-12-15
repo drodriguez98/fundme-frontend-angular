@@ -2,7 +2,7 @@
 
     <mat-card class="project-details-card">
 
-      <mat-card-header> <mat-card-title>Project {{ project.projectId }}</mat-card-title> </mat-card-header>
+      <h1>{{ project.title }}</h1>
 
       <mat-card-content>
 
@@ -17,107 +17,74 @@
 
             </div>
 
-            <p> {{ project.title }} </p>
+            <div class="content">
 
-            <p>{{ project.description }} </p>
-            
+                <p>{{ project.description }} </p>
+                
+            </div>
+
             <div class="amount">
 
-                <p><strong>Total amount </strong> = {{project.totalAmount }} €</p>
+                <p><strong>Total amount </strong>
+                <p> {{project.totalAmount }} €</p>
                 
+            </div>
+
+            <div id="buttonsContainer">
+            
+                <a mat-stroked-button routerLink="/project/donate/{{ project.projectId }}"><mat-icon>payment</mat-icon></a>
+                <a mat-stroked-button routerLink="/project/comment/{{ project.projectId }}"><mat-icon>comment</mat-icon></a>
             </div>
             
         </mat-card-content>
-
-        <!-- 
-        <mat-card-actions align="end">
-
-            <button mat-raised-button type="button" (click)="editProject()"><mat-icon>edit</mat-icon></button>
-            <button mat-raised-button type="button" (click)="closeProject()"><mat-icon>close</mat-icon></button>
-            <button mat-raised-button color="warn" type="button" (click)="openDeleteDialog(project.id)"><mat-icon>delete</mat-icon></button>
-
-        </mat-card-actions>
-        -->
-
-        <div id="buttonsContainer">
-            
-            <a mat-stroked-button routerLink="/project/donate/{{ project.projectId }}"><mat-icon>payment</mat-icon></a>
-            <a mat-stroked-button routerLink="/project/comment/{{ project.projectId }}"><mat-icon>comment</mat-icon></a>
-        </div>
 
     </mat-card>
 
     <!-- Donations -->
 
     <mat-card class="donations-card">
-
-        <mat-card-header> <mat-card-title>Donations</mat-card-title> </mat-card-header>
-
+        <h2>Donations</h2>
         <mat-card-content>
-
-            <table mat-table [dataSource]="donations" class="mat-elevation-z8">
-
-                <ng-container matColumnDef="dateAdded">
-        
-                    <th *matHeaderCellDef> Date </th>
-                    <td *matCellDef="let donation"> {{donation.dateAdded | date:'yyyy/MM/dd' }} </td>
-        
-                </ng-container>     
-        
-                <ng-container matColumnDef="username">
-        
-                    <th *matHeaderCellDef> User </th>
-                    <td *matCellDef="let donation"> {{donation.userId.username}} </td>
-        
-                </ng-container>
-        
-                <ng-container matColumnDef="amount">
-        
-                    <th *matHeaderCellDef> Amount </th>
-                    <td *matCellDef="let donation"> {{donation.amount}} €</td>
-        
-                </ng-container>
-        
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
-            </table>
-
+            <div class="table-wrapper">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Date Added</th>
+                            <th>User</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let donation of donations">
+                            <td>{{ donation.dateAdded | date:'yyyy/MM/dd' }}</td>
+                            <td>{{ donation.userId.username }}</td>
+                            <td>{{ donation.amount }} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </mat-card-content>
-
     </mat-card>
+    
 
     <!-- Comments -->
 
     <mat-card class="comments-card">
-
-        <mat-card-header> <mat-card-title>Comments</mat-card-title> </mat-card-header>
-
+        <h2>Comments</h2>
         <mat-card-content>
-
-            <div *ngFor="let comment of comments">
-
-                <mat-card class="comment-card">
-
-                    <div class="comment-title">
-
-                        <p> {{ comment.dateAdded | date:'yyyy/MM/dd' }}</p>
-                        <p> {{ comment.userId.username }}</p>
-                        
+            <div class="comments-wrapper">
+                <div *ngFor="let comment of comments" class="comment-wrapper">
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <p class="comment-date">{{ comment.dateAdded | date:'yyyy/MM/dd' }}</p>
+                            <p class="comment-username">{{ comment.userId.username }}</p>
+                        </div>
+                        <div class="comment-content">
+                            <p>{{ comment.content }}</p>
+                        </div>
                     </div>
-
-                    <mat-card-content class="comment">
-
-                        <p> {{comment.content }} </p>
-
-                    </mat-card-content>
-
-                </mat-card>
-
+                </div>
             </div>
-
         </mat-card-content>
-
     </mat-card>
-
-</div>
+    
